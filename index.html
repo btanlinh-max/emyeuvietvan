@@ -1,0 +1,698 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Em Yêu Viết Văn – Lớp 5</title>
+<meta name="description" content="Học và luyện viết 10 dạng bài văn lớp 5: lập dàn ý, viết bài, tự soát lỗi và sửa bài cùng cô trợ lý AI.">
+<meta name="theme-color" content="#1d2b53">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>:root{--paper:#fbf6ea;--card:#fffdf6;--ink:#1d2b53;--ink2:#46517a;--mut:#7b7f93;--line:#e7dcc2;--gold:#e8a317;--gold2:#fff1c9;--red:#d64545;--grn:#2f7d5b;--shadow:0 2px 0 rgba(29,43,83,.06),0 8px 24px rgba(29,43,83,.07);--r:14px;--serif:"Lora","Noto Serif",Georgia,serif;--sans:"Be Vietnam Pro","Segoe UI",system-ui,sans-serif}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.55 var(--sans);min-height:100vh}
+button,input,select,textarea{font:inherit;color:inherit}
+h1,h2,h3{font-family:var(--serif);line-height:1.25;margin:0 0 .4em}
+h1{font-size:clamp(1.6rem,4vw,2.3rem)}h2{font-size:1.4rem}h3{font-size:1.1rem}
+p{margin:0 0 .7em}
+a{color:var(--ink)}
+.muted{color:var(--mut)}.small{font-size:.875rem}.hide,[hidden]{display:none!important}
+.wrap{max-width:1120px;margin:0 auto;padding:0 16px}
+/* top bar */
+.top{position:sticky;top:0;z-index:30;background:var(--ink);color:#fff;box-shadow:0 2px 12px rgba(0,0,0,.18)}
+.top .wrap{display:flex;align-items:center;gap:12px;height:58px}
+.brand{display:flex;align-items:center;gap:10px;font-family:var(--serif);font-weight:700;font-size:1.15rem;color:#fff;text-decoration:none;cursor:pointer;background:none;border:0;padding:0}
+.brand svg{width:30px;height:30px;flex:none}
+.brand small{display:block;font:500 .68rem var(--sans);opacity:.75;letter-spacing:.03em;margin-top:-2px}
+.sp{flex:1}
+.who{display:flex;align-items:center;gap:6px;background:rgba(255,255,255,.12);border-radius:999px;padding:4px 6px 4px 12px;font-size:.88rem}
+.who select{background:transparent;border:0;color:#fff;max-width:150px;outline:0;font-weight:600}
+.who select option{color:#000}
+.nav{display:flex;gap:2px}
+.nav button{background:none;border:0;color:#fff;opacity:.8;padding:8px 12px;border-radius:10px;cursor:pointer;font-weight:600;font-size:.9rem}
+.nav button:hover,.nav button.on{opacity:1;background:rgba(255,255,255,.14)}
+@media(max-width:760px){.nav{position:fixed;bottom:0;left:0;right:0;background:var(--ink);justify-content:space-around;padding:6px 6px calc(6px + env(safe-area-inset-bottom));z-index:40;box-shadow:0 -4px 16px rgba(0,0,0,.2)}.nav button{flex:1;font-size:.78rem;padding:8px 2px}body{padding-bottom:70px}.brand small{display:none}.who select{max-width:100px}}
+/* generic */
+main{padding:22px 0 60px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);padding:18px}
+.grid{display:grid;gap:14px}
+.g2{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+.g3{grid-template-columns:repeat(auto-fill,minmax(250px,1fr))}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.btn{display:inline-flex;align-items:center;gap:6px;border:1.5px solid var(--ink);background:var(--card);color:var(--ink);border-radius:999px;padding:8px 16px;font-weight:600;cursor:pointer;text-decoration:none;font-size:.92rem;transition:transform .08s}
+.btn:hover{background:var(--gold2)}.btn:active{transform:translateY(1px)}
+.btn.primary{background:var(--ink);color:#fff}.btn.primary:hover{background:#2b3c73}
+.btn.gold{background:var(--gold);border-color:var(--gold);color:#3b2a00}.btn.gold:hover{background:#f3b53a}
+.btn.ghost{border-color:transparent;background:transparent;text-decoration:underline}
+.btn.sm{padding:4px 11px;font-size:.82rem}
+.btn:disabled{opacity:.5;cursor:not-allowed}
+.chip{display:inline-block;border:1px solid var(--line);background:#fff;border-radius:999px;padding:3px 11px;font-size:.88rem;cursor:pointer;margin:0 6px 6px 0}
+.chip:hover{background:var(--gold2);border-color:var(--gold)}
+.tag{display:inline-block;font-size:.72rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:2px 9px;border-radius:999px;color:#fff}
+input[type=text],input[type=password],input[type=number],input[type=date],select,textarea{width:100%;border:1.5px solid var(--line);border-radius:10px;padding:9px 12px;background:#fff;outline:0}
+input:focus,select:focus,textarea:focus{border-color:var(--ink)}
+label{font-weight:600;font-size:.9rem;display:block;margin:10px 0 4px}
+.crumb{font-size:.88rem;margin-bottom:10px}.crumb button{background:none;border:0;cursor:pointer;color:var(--ink2);text-decoration:underline;padding:0}
+.spin{display:inline-block;width:14px;height:14px;border:2px solid var(--line);border-top-color:var(--ink);border-radius:50%;animation:sp .8s linear infinite;vertical-align:-2px;margin-right:6px}@keyframes sp{to{transform:rotate(360deg)}}
+/* home */
+.hero{display:grid;grid-template-columns:1.3fr 1fr;gap:20px;align-items:center;margin-bottom:22px}
+@media(max-width:760px){.hero{grid-template-columns:1fr}}
+.hero .art{background:var(--gold2);border:1px solid #f0d78a;border-radius:20px;padding:18px;position:relative;overflow:hidden;min-height:150px}
+.hero .art:before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(transparent 0 27px,rgba(29,43,83,.1) 27px 28px)}
+.hero .art:after{content:"";position:absolute;left:34px;top:0;bottom:0;width:2px;background:var(--red);opacity:.6}
+.hero .art p{position:relative;font-family:var(--serif);font-style:italic;font-size:1.05rem;line-height:28px;margin:0 0 0 30px}
+.tcard{display:flex;flex-direction:column;gap:6px;cursor:pointer;border-top:6px solid var(--c);text-align:left;width:100%}
+.tcard:hover{transform:translateY(-2px);box-shadow:0 2px 0 rgba(0,0,0,.05),0 12px 28px rgba(29,43,83,.12)}
+.tcard .ic{font-size:1.9rem;line-height:1}.tcard h3{margin:0}
+.gh{display:flex;align-items:center;gap:8px;margin:22px 0 10px}.gh i{width:10px;height:10px;border-radius:50%;background:var(--c)}.gh h2{margin:0;font-size:1.1rem}
+/* tabs inside page */
+.tabs{display:flex;gap:4px;border-bottom:2px solid var(--line);margin:14px 0;overflow-x:auto}
+.tabs button{background:none;border:0;border-bottom:3px solid transparent;margin-bottom:-2px;padding:9px 14px;font-weight:700;cursor:pointer;color:var(--mut);white-space:nowrap}
+.tabs button.on{color:var(--ink);border-color:var(--gold)}
+/* stepper */
+.steps{display:flex;gap:0;margin:0 0 16px;overflow-x:auto;padding-bottom:4px}
+.steps button{flex:1;min-width:92px;background:none;border:0;cursor:pointer;padding:6px 4px;text-align:center;position:relative;color:var(--mut);font-size:.82rem;font-weight:600}
+.steps button b{display:grid;place-items:center;width:30px;height:30px;border-radius:50%;margin:0 auto 3px;background:#fff;border:2px solid var(--line);font-size:.9rem}
+.steps button.on{color:var(--ink)}.steps button.on b{background:var(--gold);border-color:var(--gold);color:#3b2a00}
+.steps button.done b{background:var(--grn);border-color:var(--grn);color:#fff}
+.sec{border-left:4px solid var(--gold);padding:2px 0 2px 14px;margin:0 0 16px}
+.sec .q{margin:6px 0 0;padding-left:18px;color:var(--ink2);font-size:.92rem}
+.ex{background:var(--gold2);border-radius:10px;padding:8px 12px;font-family:var(--serif);font-size:.95rem;margin:6px 0 0}
+.bad li,.ok li{margin-bottom:4px}
+/* editor */
+.edwrap{display:grid;grid-template-columns:1fr 310px;gap:16px;align-items:start}
+@media(max-width:900px){.edwrap{grid-template-columns:1fr}}
+.paper{position:relative;background:#fffef8;border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);overflow:hidden}
+.paper:before{content:"";position:absolute;left:46px;top:0;bottom:0;width:2px;background:var(--red);opacity:.5;z-index:1;pointer-events:none}
+.paper textarea{display:block;border:0;border-radius:0;background:repeating-linear-gradient(transparent 0 33px,rgba(29,43,83,.13) 33px 34px);background-attachment:local;font:18px/34px var(--serif);padding:2px 18px 2px 62px;min-height:480px;resize:vertical;width:100%}
+.paper textarea:focus{outline:0}
+.stats{display:flex;gap:14px;flex-wrap:wrap;font-size:.86rem;padding:8px 14px;border-top:1px solid var(--line);background:#fbf7e8}
+.bar{height:6px;border-radius:3px;background:var(--line);overflow:hidden}.bar i{display:block;height:100%;background:var(--grn);width:0}
+.side .card{margin-bottom:12px;padding:14px}
+.side details summary{cursor:pointer;font-weight:700;padding:2px 0}
+.ol{padding:8px 12px;border-left:3px solid var(--gold);background:#fff;border-radius:6px;margin:6px 0;font-size:.9rem;white-space:pre-wrap}
+/* feedback */
+.fb{border-left:5px solid var(--c,var(--gold));background:#fff;border-radius:10px;padding:10px 14px;margin:8px 0}
+.fb.warn{--c:var(--red)}.fb.tip{--c:#2563eb}.fb.ok{--c:var(--grn)}
+.fb q{display:block;font-family:var(--serif);color:var(--ink2);margin:2px 0}
+.fb.done{opacity:.55}
+.score{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:8px;margin:8px 0}
+.score div{background:#fff;border:1px solid var(--line);border-radius:10px;padding:8px 10px;text-align:center;font-size:.85rem}
+.score b{display:block;font:700 1.35rem var(--serif)}
+.total{font:700 2rem var(--serif)}
+/* table */
+.tbl{width:100%;border-collapse:collapse;font-size:.92rem}
+.tbl th,.tbl td{border-bottom:1px solid var(--line);padding:8px 8px;text-align:left;vertical-align:top}
+.tbl th{font-size:.78rem;text-transform:uppercase;letter-spacing:.04em;color:var(--mut)}
+.tbl tr.clk{cursor:pointer}.tbl tr.clk:hover{background:var(--gold2)}
+.scroll{overflow-x:auto}
+/* modal & toast */
+.ov{position:fixed;inset:0;background:rgba(20,28,60,.5);z-index:60;display:grid;place-items:center;padding:14px}
+.modal{background:var(--card);border-radius:16px;max-width:560px;width:100%;max-height:90vh;overflow:auto;padding:20px;box-shadow:0 20px 60px rgba(0,0,0,.3)}
+.toast{position:fixed;left:50%;bottom:84px;transform:translateX(-50%);background:var(--ink);color:#fff;padding:10px 18px;border-radius:999px;z-index:80;font-size:.9rem;box-shadow:0 8px 24px rgba(0,0,0,.25)}
+.sample .pt{margin:0 0 12px;padding:10px 14px;background:#fff;border-radius:10px;border:1px solid var(--line)}
+.sample .pt h4{margin:0 0 4px;font-size:.78rem;text-transform:uppercase;letter-spacing:.05em;color:var(--mut)}
+.sample .pt p{font-family:var(--serif);font-size:1.02rem;margin:0;white-space:pre-wrap}
+.sample .nt{font:italic .85rem var(--sans);color:var(--grn);margin-top:6px}
+.spark{width:100%;height:70px}
+/* print */
+#printArea{display:none}
+@media print{body>*:not(#printArea){display:none!important}#printArea{display:block}
+ #printArea{font:14pt/28pt var(--serif);color:#000}
+ #printArea h2{font-size:16pt;margin:0 0 4pt}
+ #printArea .meta{font:10pt var(--sans);color:#444;margin-bottom:10pt}
+ #printArea .txt{white-space:pre-wrap;background:repeating-linear-gradient(transparent 0 27.5pt,#bbb 27.5pt 28pt);padding-left:26pt;border-left:1.5pt solid #d33}}
+.brand span{white-space:nowrap}
+@media(max-width:760px){.who>span{display:none}.who{padding-left:8px}.brand{font-size:1rem}.top .wrap{gap:8px}}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap">
+ <button class="brand" data-go=""><svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="#e8a317"/><path d="M8 24l2-6 11-11 4 4-11 11-6 2z" fill="#1d2b53"/><path d="M19 9l4 4" stroke="#fffdf6" stroke-width="2"/></svg><span>Em Yêu Viết Văn<small>LUYỆN VIẾT VĂN LỚP 5</small></span></button>
+ <div class="sp"></div>
+ <div class="who" id="who"></div>
+ <nav class="nav"><button data-go="">🏠 Trang chủ</button><button data-go="mine">📒 Bài của em</button><button data-go="co">🍎 Cô giáo</button></nav>
+</div></header>
+<main id="app"></main>
+<div id="printArea"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js" defer></script>
+<script>/* Nội dung dạy viết văn lớp 5 – 10 dạng bài (theo Chương trình GDPT 2018, phần Viết lớp 5).
+   Cô giáo có thể đối chiếu với sách đang dùng (Kết nối tri thức / Chân trời sáng tạo / Cánh diều) và chọn dạng bài phù hợp từng tuần. */
+const GROUPS=[
+  {id:"ta",name:"Văn tả",c:"#2f7d5b"},
+  {id:"ke",name:"Văn kể",c:"#c2410c"},
+  {id:"doan",name:"Đoạn văn",c:"#7c3aed"},
+  {id:"gt",name:"Giới thiệu",c:"#0e7490"},
+  {id:"vb",name:"Văn bản thông dụng",c:"#475569"}
+];
+const RUBRIC={
+  essay:[["Nội dung","Đúng đề, đủ ý, có chi tiết riêng của em"],["Bố cục","Có mở bài, thân bài, kết bài; ý sắp xếp hợp lí"],["Dùng từ, hình ảnh","Từ ngữ chọn lọc; có so sánh, nhân hóa…"],["Câu, chính tả","Câu đúng ngữ pháp; viết hoa, dấu câu đúng"],["Cảm xúc, sáng tạo","Có nét riêng, chân thật, giàu cảm xúc"]],
+  para:[["Nội dung","Đúng yêu cầu, đủ ý"],["Cấu trúc đoạn","Có câu mở đoạn, câu triển khai, câu kết đoạn"],["Dùng từ, hình ảnh","Từ ngữ chọn lọc, giàu hình ảnh"],["Câu, chính tả","Câu đúng ngữ pháp; viết hoa, dấu câu đúng"],["Cảm xúc, lập luận","Cảm xúc chân thật hoặc lí lẽ rõ ràng"]],
+  form:[["Thể thức","Đủ các phần bắt buộc, đúng thứ tự"],["Nội dung","Rõ ràng, đủ thông tin cần thiết"],["Lời lẽ","Lịch sự, phù hợp với người nhận"],["Câu, chính tả","Câu đúng ngữ pháp; viết hoa, dấu câu đúng"],["Trình bày","Xuống dòng, ngày tháng, chữ ký rõ ràng"]]
+};
+const TYPES=[
+{id:"taNguoi",g:"ta",name:"Tả người",icon:"🧑‍🏫",color:"#2f7d5b",kind:"essay",min:150,max:350,
+ short:"Làm hiện lên một người thân quen bằng ngoại hình, hoạt động và tính tình.",
+ goal:"Tả được một người em quen biết: chọn nét tiêu biểu về ngoại hình, tả qua hoạt động, lời nói, và bộc lộ tình cảm.",
+ secs:[
+  {t:"Mở bài",p:"Giới thiệu người em tả và hoàn cảnh em quan sát.",q:["Người em tả là ai? Em gặp hoặc sống cùng người ấy trong hoàn cảnh nào?","Vì sao em chọn tả người này?"],s:["Trong gia đình em, người em yêu quý nhất là…","Em đã quen cô (chú) … từ khi…"]},
+  {t:"Thân bài 1 – Ngoại hình",p:"Chỉ chọn vài nét tiêu biểu, đừng tả hết từng bộ phận.",q:["Điều gì ở người ấy khiến em nhớ nhất: mái tóc, đôi mắt, nụ cười hay giọng nói?","Em có thể so sánh nét đó với hình ảnh quen thuộc nào?"],s:["Mái tóc … được búi gọn…","Đôi mắt … như…","Giọng nói … nghe…"]},
+  {t:"Thân bài 2 – Hoạt động, tính tình",p:"Tả qua việc làm, cử chỉ, lời nói và một kỉ niệm.",q:["Người ấy hay làm việc gì? Làm như thế nào (nhanh, chậm, cẩn thận…)?","Có lời nói hay kỉ niệm nào khiến em nhớ mãi?"],s:["Mỗi buổi sáng, … thường…","Có lần, … đã…","… hay nói với em rằng: “…”"]},
+  {t:"Kết bài",p:"Nêu tình cảm và mong muốn của em.",q:["Em yêu quý, biết ơn người ấy vì điều gì?","Em hứa hoặc mong điều gì?"],s:["Em rất yêu quý…","Em mong… luôn khỏe mạnh để…"]}],
+ skills:[
+  {n:"Chọn nét tiêu biểu",d:"Mỗi người có một nét riêng. Tả nét đó thật kĩ thay vì kể đủ tóc, mắt, mũi, miệng.",e:"Đôi bàn tay bà gầy, chai sần nhưng ấm áp lạ thường."},
+  {n:"Tả qua hoạt động và lời nói",d:"Cho người đọc thấy tính cách qua việc người ấy làm và nói.",e:"Bà lặng lẽ đặt cốc sữa ấm cạnh bàn rồi nhẹ nhàng khép cửa lại."},
+  {n:"So sánh sinh động",d:"Dùng hình ảnh quen thuộc: như, tựa như, hệt như.",e:"Đôi mắt hiền như hai vầng trăng khuyết."},
+  {n:"Gắn với kỉ niệm",d:"Một kỉ niệm nhỏ làm bài văn có cảm xúc riêng của em.",e:"Có hôm em học bài khuya, bà…"}],
+ bad:["Liệt kê như khai lí lịch (tóc, mắt, mũi, miệng…) mà không có nét riêng.","Chỉ tả ngoại hình, thiếu hoạt động và tình cảm.","Lặp từ “bà”, “cô” ở đầu quá nhiều câu liên tiếp.","Kết bài chỉ ghi “Em rất yêu bà” mà không nói thêm."],
+ check:["Em đã nói rõ người em tả là ai ở mở bài.","Em tả ít nhất 2 nét ngoại hình tiêu biểu.","Em tả được việc làm hoặc lời nói của người ấy.","Có ít nhất 1 hình ảnh so sánh.","Em có kể một kỉ niệm hoặc chi tiết riêng.","Kết bài có tình cảm của em."],
+ topics:["Tả một người thân trong gia đình mà em yêu quý.","Tả cô giáo (thầy giáo) mà em nhớ nhất.","Tả một người bạn thân của em.","Tả một người lao động em hay gặp (bác bảo vệ, cô lao công, chú bộ đội…).","Tả một cụ già hàng xóm của em.","Tả người em đã gặp trong một chuyến đi và nhớ mãi."],
+ vocab:[{g:"Ngoại hình",w:["dong dỏng cao","nhỏ nhắn","vạm vỡ","khuôn mặt phúc hậu","đôi mắt hiền từ","làn da rám nắng","mái tóc bạc phơ","nụ cười hiền hậu","giọng nói ấm áp","đôi bàn tay chai sạn"]},
+  {g:"Tính tình",w:["tận tụy","chu đáo","ân cần","chịu khó","hiền lành","vui tính","điềm đạm","nhanh nhẹn","nhân hậu","nghiêm khắc mà thương yêu"]},
+  {g:"Hoạt động",w:["thoăn thoắt","chậm rãi","cặm cụi","tỉ mỉ","say sưa","hăng say","lặng lẽ","khe khẽ"]}],
+ sample:{title:"Bà nội của em",parts:[
+  {t:"Mở bài",x:"Trong gia đình, người em yêu quý nhất là bà nội. Bà đã ngoài bảy mươi tuổi nhưng chiều nào cũng ngồi chờ em ở hiên nhà.",n:"Giới thiệu ngay người được tả và một hình ảnh đáng nhớ."},
+  {t:"Thân bài 1",x:"Bà có dáng người nhỏ nhắn, lưng hơi còng vì năm tháng. Mái tóc bạc phơ được bà búi gọn sau gáy bằng chiếc kẹp nâu cũ. Khuôn mặt bà hằn nhiều nếp nhăn, mỗi khi cười, đôi mắt hiền như hai vầng trăng khuyết. Đôi bàn tay bà gầy, chai sần nhưng ấm áp lạ thường.",n:"Chọn vài nét tiêu biểu; có hình ảnh so sánh “hiền như hai vầng trăng khuyết”."},
+  {t:"Thân bài 2",x:"Sáng nào bà cũng dậy từ khi gà gáy đầu tiên để nấu nồi cháo nóng cho cả nhà. Bà thoăn thoắt nhặt rau, thái hành, vừa làm vừa khe khẽ ngân nga câu ca cũ. Có hôm em học bài khuya, bà lặng lẽ mang cốc sữa ấm đặt cạnh bàn rồi nhẹ nhàng khép cửa lại, sợ làm em mất tập trung. Bà ít nói nhưng lời nào của bà em cũng nhớ: “Con ơi, đã làm thì phải làm cho tử tế.”",n:"Tả qua hành động, kỉ niệm và lời nói – người đọc hiểu tính cách của bà."},
+  {t:"Kết bài",x:"Em mong bà luôn khỏe mạnh để mãi là chỗ dựa của em. Em hứa sẽ học thật chăm để không phụ lòng bà.",n:"Nêu mong muốn và lời hứa, không chỉ viết “em rất yêu bà”."}]}},
+
+{id:"taCanh",g:"ta",name:"Tả cảnh",icon:"🌅",color:"#0f766e",kind:"essay",min:150,max:350,
+ short:"Tả một cảnh quen thuộc theo trình tự, bằng nhiều giác quan.",
+ goal:"Tả được cảnh vật theo một trình tự hợp lí (thời gian hoặc không gian), dùng giác quan, nhân hóa, so sánh và nêu cảm xúc.",
+ secs:[
+  {t:"Mở bài",p:"Giới thiệu cảnh em tả, thời điểm và nơi em quan sát.",q:["Em tả cảnh gì, ở đâu, vào lúc nào?","Cảnh ấy gợi cho em cảm giác gì ngay từ đầu?"],s:["Trong những nơi em từng đến, em yêu nhất…","Mỗi khi… cảnh… lại hiện lên…"]},
+  {t:"Thân bài 1 – Bao quát",p:"Nhìn toàn cảnh trước: màu sắc, không gian, âm thanh chung.",q:["Nhìn từ xa (hoặc từ cổng vào), em thấy toàn cảnh như thế nào?","Có màu sắc, mùi hương hay âm thanh nào nổi bật?"],s:["Từ xa nhìn lại…","Bao trùm khung cảnh là…"]},
+  {t:"Thân bài 2 – Chi tiết",p:"Tả kĩ vài cảnh vật tiêu biểu theo trình tự đã chọn.",q:["Em chọn tả những cảnh vật nào? Theo thứ tự nào (gần đến xa, hay theo thời gian)?","Mỗi cảnh vật có hình dáng, màu sắc, chuyển động gì? Em có thể so sánh hoặc nhân hóa không?"],s:["Gần hơn là…","Những… như đang…","Tiếng… vang lên…"]},
+  {t:"Thân bài 3 – Con người trong cảnh",p:"Hoạt động của người, vật làm cảnh sống động.",q:["Ai đang làm gì trong cảnh ấy? Không khí ra sao?"],s:["Trên sân…","Mọi người…"]},
+  {t:"Kết bài",p:"Cảm nghĩ về cảnh và việc em sẽ làm.",q:["Cảnh ấy mang lại cho em điều gì?","Em muốn làm gì để giữ gìn cảnh đẹp ấy?"],s:["Em rất yêu…","Em sẽ cùng các bạn giữ gìn…"]}],
+ skills:[
+  {n:"Chọn trình tự quan sát",d:"Tả theo thời gian (sáng → trưa → chiều) hoặc không gian (xa → gần, bao quát → chi tiết). Đừng nhảy lung tung.",e:"Từ cổng nhìn vào… Gần hơn là… Ở góc sân…"},
+  {n:"Dùng nhiều giác quan",d:"Không chỉ nhìn: còn nghe, ngửi, chạm.",e:"Gió thổi nhẹ, lá khẽ xào xạc như thì thầm."},
+  {n:"Nhân hóa và so sánh",d:"Cho cảnh vật biết “làm” việc như con người.",e:"Những hàng phượng đứng thẳng như các chú bộ đội gác sân trường."},
+  {n:"Gắn cảnh với cảm xúc",d:"Cảm xúc của em làm cảnh có hồn.",e:"Em thấy lòng nhẹ bẫng như bay lên cùng nắng sớm."}],
+ bad:["Chỉ liệt kê cảnh vật, không có màu sắc, âm thanh.","Trình tự lộn xộn: đang tả sáng lại nhảy sang chiều.","Dùng từ “đẹp” cho mọi thứ, không nói đẹp như thế nào.","Quên con người và hoạt động trong cảnh."],
+ check:["Mở bài nói rõ cảnh nào, lúc nào.","Em có tả theo một trình tự rõ ràng.","Có ít nhất 3 cảnh vật được tả bằng màu sắc, hình dáng hoặc âm thanh.","Có ít nhất 1 hình ảnh nhân hóa hoặc so sánh.","Có hoạt động của người hoặc vật trong cảnh.","Kết bài có cảm nghĩ của em."],
+ topics:["Tả cảnh sân trường em vào một buổi sáng.","Tả cảnh làng quê (hoặc khu phố) em vào buổi chiều.","Tả một cơn mưa em đã gặp.","Tả cảnh một công viên (bãi biển, dòng sông) mà em yêu thích.","Tả cảnh sân trường trong giờ ra chơi.","Tả cảnh một ngày hội (chợ Tết, hội làng) em từng đến."],
+ vocab:[{g:"Âm thanh",w:["ríu rít","rì rào","xào xạc","lao xao","róc rách","thánh thót","rộn ràng","vi vu"]},
+  {g:"Màu sắc, hình ảnh",w:["xanh mướt","vàng óng","lấp lánh","mênh mông","bát ngát","thăm thẳm","sương giăng","đỏ rực"]},
+  {g:"Nhân hóa",w:["vươn mình","thì thầm","nô đùa","chào đón","ngủ say","khoác chiếc áo","mỉm cười","nghiêng mình"]}],
+ sample:{title:"Sân trường buổi sáng",parts:[
+  {t:"Mở bài",x:"Trong tất cả những nơi em từng đến, em yêu nhất là sân trường vào buổi sáng, khi nắng mai vừa chạm khẽ lên mái ngói đỏ.",n:"Nêu rõ cảnh, thời điểm và tình cảm."},
+  {t:"Thân bài 1",x:"Từ cổng nhìn vào, sân trường rộng như một tấm thảm phẳng lặng, được quét sạch từng chiếc lá. Những hàng phượng đứng thẳng hai bên, tán lá xanh mướt lấp lánh sương đêm. Gió thổi nhẹ, lá khẽ xào xạc như thì thầm chào các bạn.",n:"Tả bao quát trước; có so sánh và nhân hóa; có cả hình ảnh và âm thanh."},
+  {t:"Thân bài 2",x:"Tiếng trống trường vừa dứt cũng là lúc sân trường nhộn nhịp hẳn lên. Các bạn nhỏ ríu rít chạy vào lớp, chiếc cặp sau lưng nảy tưng tưng. Ở góc sân, mấy bạn lớp em đang chuyền cầu, tiếng cười giòn tan vang cả một khoảng trời. Bác bảo vệ đứng cạnh cổng, mỉm cười gật đầu với từng em.",n:"Từ cảnh vật chuyển sang con người – theo trình tự không gian."},
+  {t:"Kết bài",x:"Sân trường không chỉ là nơi em vui chơi mà còn lưu giữ biết bao kỉ niệm tuổi thơ. Em tự nhủ sẽ cùng các bạn giữ gìn sân trường luôn sạch đẹp.",n:"Kết bằng cảm nghĩ và việc làm cụ thể."}]}},
+
+{id:"keChuyen",g:"ke",name:"Kể chuyện sáng tạo",icon:"📖",color:"#c2410c",kind:"essay",min:150,max:400,
+ short:"Viết lại câu chuyện đã học: đổi ngôi kể, thêm lời thoại, đổi kết thúc.",
+ goal:"Kể lại một câu chuyện đã nghe/đọc theo cách sáng tạo: đổi ngôi kể, thêm chi tiết (lời thoại, suy nghĩ), thay đổi hoặc nối thêm kết thúc nhưng hợp lí.",
+ secs:[
+  {t:"Mở đầu",p:"Giới thiệu nhân vật, bối cảnh và chọn ngôi kể.",q:["Em kể chuyện nào? Em kể theo lời ai (ngôi “tôi” của nhân vật nào) hay lời người kể chuyện?","Câu chuyện xảy ra ở đâu, khi nào?"],s:["Tôi là… Hôm ấy…","Ngày xưa, ở… có…"]},
+  {t:"Diễn biến",p:"Kể các sự việc chính theo thứ tự, thêm lời thoại, hành động, suy nghĩ.",q:["Những sự việc chính nào xảy ra theo thứ tự?","Nhân vật nói gì, nghĩ gì, cảm thấy ra sao ở mỗi sự việc?","Em thêm chi tiết riêng nào cho câu chuyện?"],s:["Bỗng nhiên…","“…” – … nói.","Trong lòng … thầm nghĩ…"]},
+  {t:"Cao trào, kết thúc",p:"Sự việc quan trọng nhất và kết thúc (giữ nguyên hoặc em sáng tạo).",q:["Điều gì xảy ra ở đỉnh điểm của chuyện?","Kết thúc em chọn là gì? Vì sao nó hợp lí?"],s:["Đúng lúc ấy…","Cuối cùng…","Từ đó…"]},
+  {t:"Bài học",p:"Điều em rút ra (nếu cần).",q:["Câu chuyện giúp em hiểu điều gì?"],s:["Qua câu chuyện, em hiểu rằng…"]}],
+ skills:[
+  {n:"Chọn ngôi kể",d:"Nhập vai nhân vật (ngôi “tôi”) giúp câu chuyện có góc nhìn mới.",e:"Tôi là con chim lạ vẫn ghé thăm cây khế đầu ngõ…"},
+  {n:"Thêm lời thoại",d:"Lời nói của nhân vật làm truyện sống động. Dùng dấu ngoặc kép hoặc gạch đầu dòng.",e:"“Anh đừng khóc,” tôi nói."},
+  {n:"Thêm suy nghĩ, cảm xúc",d:"Cho người đọc biết nhân vật nghĩ gì, run hay vui.",e:"Anh ngỡ ngàng nhìn tôi rồi khẽ gật đầu."},
+  {n:"Đổi kết thúc hợp lí",d:"Kết thúc mới phải phù hợp tính cách nhân vật và bài học của chuyện.",e:"Từ đó, cây khế trĩu quả, nụ cười anh sáng cả ngõ."}],
+ bad:["Chép lại truyện gốc, không có gì mới.","Đổi ngôi kể giữa chừng (đang “tôi” lại thành “cậu ấy”).","Thiếu lời thoại hoặc suy nghĩ nhân vật.","Kết thúc mới không hợp tính cách nhân vật."],
+ check:["Em chọn một ngôi kể và giữ nguyên đến hết bài.","Có giới thiệu nhân vật và bối cảnh.","Các sự việc theo thứ tự rõ ràng.","Có ít nhất 2 lời thoại của nhân vật.","Có suy nghĩ hoặc cảm xúc của nhân vật.","Kết thúc hợp lí và có ý nghĩa."],
+ topics:["Kể lại truyện “Cây khế” theo lời của con chim thần.","Kể lại truyện “Thạch Sanh” và thay đổi một chi tiết quan trọng.","Kể lại “Sơn Tinh, Thủy Tinh” theo lời của Mị Nương.","Kể lại “Tấm Cám” theo lời của chiếc giày.","Nối tiếp một câu chuyện em đã học: chuyện xảy ra sau đó như thế nào?","Tưởng tượng: một ngày em là chú mèo (chiếc bút, đám mây) của lớp em."],
+ vocab:[{g:"Từ dẫn chuyện",w:["bỗng nhiên","đúng lúc ấy","không ngờ","thế rồi","ít lâu sau","từ đó về sau","chợt","cuối cùng"]},
+  {g:"Cảm xúc nhân vật",w:["hồi hộp","phân vân","ngỡ ngàng","hối hận","hân hoan","lo lắng","xúc động","bồn chồn"]},
+  {g:"Lời dẫn thoại",w:["thì thầm","nài nỉ","reo lên","nghẹn ngào","ngập ngừng","khẽ gật đầu","giải thích","quả quyết"]}],
+ sample:{title:"Cây khế – kể theo lời con chim (đoạn mẫu)",parts:[
+  {t:"Mở đầu",x:"Tôi là con chim lạ vẫn thường ghé thăm cây khế đầu ngõ nhà người em. Hôm ấy, vừa đáp xuống cành, tôi bỗng nghe thấy tiếng khóc thút thít bên gốc cây.",n:"Đổi ngôi kể: nhập vai con chim (ngôi “tôi”)."},
+  {t:"Diễn biến",x:"Người nông dân hiền lành ngước lên, nước mắt còn ướt má. Tôi ngập ngừng một lúc rồi cất tiếng: “Anh đừng khóc. Tôi ăn vài quả khế, anh may cho tôi chiếc túi ba gang, tôi sẽ đưa anh đến nơi có vàng bạc.” Anh ngỡ ngàng nhìn tôi rồi khẽ gật đầu. Tối ấy, tôi cõng anh bay qua biển cả mênh mông. Gió lạnh buốt, nhưng anh chỉ lo nhìn xuống hòn đảo hiện dần dưới ánh trăng. Đến nơi, tôi dặn: “Chỉ lấy vừa đủ thôi nhé.” Anh làm đúng lời, chỉ nhặt vài viên rồi bỏ vào túi.",n:"Có lời thoại, suy nghĩ, chi tiết thêm mới (lời dặn “vừa đủ”)."},
+  {t:"Kết thúc",x:"Nhìn anh vui mừng, tôi hiểu: người sống biết đủ thì dù ít cũng thành nhiều. Từ đó, mỗi lần bay qua, tôi lại thấy cây khế trĩu quả, và nụ cười của anh sáng cả ngõ.",n:"Bài học rút ra từ góc nhìn của chính nhân vật kể chuyện."}]}},
+
+{id:"camXuc",g:"doan",name:"Đoạn văn nêu cảm xúc",icon:"💛",color:"#be185d",kind:"para",min:60,max:180,
+ short:"Viết một đoạn văn thể hiện tình cảm, cảm xúc về một người, sự việc hay cảnh vật.",
+ goal:"Viết đoạn văn 6–10 câu nói rõ cảm xúc, giải thích vì sao em có cảm xúc ấy và biểu hiện bằng hành động, hình ảnh.",
+ secs:[
+  {t:"Câu mở đoạn",p:"Nêu đối tượng và cảm xúc chủ đạo.",q:["Em viết về điều gì (người, sự việc, cảnh)?","Em cảm thấy thế nào? (vui, xúc động, tự hào, nhớ…)"],s:["Em nhớ mãi…","Em vô cùng xúc động khi…"]},
+  {t:"Các câu triển khai",p:"Chi tiết, kỉ niệm làm em có cảm xúc ấy; biểu hiện của em.",q:["Chuyện gì đã xảy ra? Em thấy gì, nghe gì?","Cơ thể em phản ứng thế nào (tim, tay, má, mắt…)?"],s:["Khi… tim em…","Em cảm thấy như…"]},
+  {t:"Câu kết đoạn",p:"Khẳng định lại cảm xúc hoặc mong ước, lời hứa.",q:["Điều ấy để lại trong em điều gì? Em mong hoặc hứa điều gì?"],s:["Em tự hứa…","Kỉ niệm ấy sẽ theo em…"]}],
+ skills:[
+  {n:"Nói rõ cảm xúc",d:"Dùng từ chỉ cảm xúc cụ thể thay cho “vui”, “buồn” chung chung.",e:"hồi hộp, nao nao, tự hào, rưng rưng"},
+  {n:"Cảm xúc qua biểu hiện",d:"Tả phản ứng của cơ thể và hành động để người đọc cảm được.",e:"Tim em đập thình thịch, hai tay run run nắm chặt vạt áo."},
+  {n:"Giải thích vì sao",d:"Có lí do thì cảm xúc mới thuyết phục.",e:"Những đêm cặm cụi sửa bài bỗng trở nên thật đáng giá."},
+  {n:"So sánh hình ảnh",d:"Dùng hình ảnh để cảm xúc thêm rõ.",e:"Trong lòng em nở một đóa hoa nhỏ."}],
+ bad:["Chỉ viết “em rất vui, em rất buồn” lặp lại.","Kể sự việc dài mà không nói cảm xúc.","Viết nhiều đoạn nhỏ rời rạc, không thành một đoạn.","Câu kết chỉ chép lại câu mở."],
+ check:["Câu đầu nêu rõ chuyện gì, cảm xúc gì.","Có ít nhất 1 chi tiết cụ thể (ai, ở đâu, lúc nào).","Có biểu hiện cảm xúc (cơ thể, hành động).","Có lí do vì sao em có cảm xúc ấy.","Có hình ảnh so sánh hoặc từ ngữ giàu cảm xúc.","Câu kết nêu mong ước hoặc lời hứa."],
+ topics:["Cảm xúc của em khi được cô giáo khen trước lớp.","Cảm xúc của em khi chia tay một người bạn.","Cảm xúc của em khi đứng trước cánh đồng lúa chín quê em.","Cảm xúc của em khi giúp đỡ một người gặp khó khăn.","Cảm xúc của em khi nhận được món quà bất ngờ.","Tình cảm của em với mái trường tiểu học sắp chia tay."],
+ vocab:[{g:"Từ chỉ cảm xúc",w:["hồi hộp","xúc động","tự hào","nao nao","bồi hồi","rưng rưng","bâng khuâng","háo hức"]},
+  {g:"Biểu hiện",w:["tim đập thình thịch","má nóng bừng","mắt cay cay","run run","nghẹn lại","mỉm cười","rạng rỡ","lòng ấm áp"]}],
+ sample:{title:"Lời khen của cô",parts:[
+  {t:"Đoạn văn",x:"Em nhớ mãi buổi sáng cô giáo khen bài văn của em trước cả lớp. Khi cô cất tiếng gọi tên, tim em đập thình thịch như tiếng trống trường ngày khai giảng. Em đứng lên, hai tay run run nắm chặt vạt áo, má nóng bừng. Giọng cô ấm áp: “Bài văn của em có những hình ảnh rất đẹp.” Nghe xong, em thấy trong lòng nở một đóa hoa nhỏ, niềm vui lan khắp người. Những đêm cặm cụi sửa bài bỗng trở nên thật đáng giá. Em tự hứa sẽ chăm chỉ hơn để xứng đáng với lời khen ấy.",n:"Câu mở nêu việc và cảm xúc → biểu hiện cơ thể → lí do → câu kết là lời hứa."}]}},
+
+{id:"yKien",g:"doan",name:"Đoạn văn nêu ý kiến",icon:"🗣️",color:"#6d28d9",kind:"para",min:80,max:220,
+ short:"Nêu ý kiến tán thành hoặc không tán thành về một hiện tượng, vấn đề, có lí lẽ và ví dụ.",
+ goal:"Viết đoạn văn nêu rõ ý kiến (tán thành/không tán thành), đưa lí lẽ và ví dụ cụ thể, lịch sự khi phản đối.",
+ secs:[
+  {t:"Nêu vấn đề và ý kiến",p:"Câu chủ đề: em tán thành hay không, về điều gì.",q:["Vấn đề cần bàn là gì?","Em tán thành hay không tán thành?"],s:["Em hoàn toàn đồng ý với ý kiến cho rằng…","Em không đồng tình với việc…"]},
+  {t:"Lí lẽ và ví dụ",p:"Ít nhất 2 lí do, mỗi lí do có ví dụ thật.",q:["Lí do thứ nhất là gì? Ví dụ trong đời sống hay trong lớp em?","Lí do thứ hai là gì? Có thêm ví dụ không?"],s:["Trước hết, …","Hơn nữa, …","Chẳng hạn, …"]},
+  {t:"Mặt khác, khuyến nghị",p:"Nhìn nhận ý kiến khác và đề xuất cách làm đúng.",q:["Có ý kiến nào khác không? Em trả lời lịch sự thế nào?","Em đề nghị mọi người nên làm gì?"],s:["Tuy nhiên, …","Vì vậy, chúng ta nên…"]},
+  {t:"Khẳng định lại",p:"Nhắc lại ý kiến của em.",q:["Em muốn nhắn gì để kết lại?"],s:["Tóm lại, …"]}],
+ skills:[
+  {n:"Câu chủ đề rõ ràng",d:"Người đọc phải biết ngay em tán thành hay phản đối.",e:"Em hoàn toàn đồng ý với ý kiến cho rằng học sinh nên đọc sách mỗi ngày."},
+  {n:"Lí lẽ + ví dụ",d:"Mỗi lí lẽ đi kèm ví dụ thật mới thuyết phục.",e:"Chẳng hạn, sau khi đọc truyện về loài chim, em biết tả tiếng hót ríu rít."},
+  {n:"Từ nối lập luận",d:"Nối các ý bằng: vì, bởi vì, trước hết, hơn nữa, tuy nhiên, vì vậy.",e:"Tuy nhiên, em cũng nhận ra không nên đọc quá khuya."},
+  {n:"Phản đối lịch sự",d:"Nói “em không đồng tình” và giải thích, không chê bai người khác.",e:"Em hiểu bạn nghĩ vậy, nhưng em thấy…"}],
+ bad:["Chỉ nói “em thấy thế là đúng” mà không có lí do.","Lí lẽ không có ví dụ.","Đổi ý giữa chừng (đầu đoạn tán thành, cuối đoạn phản đối).","Dùng lời lẽ thiếu lịch sự."],
+ check:["Câu đầu nêu rõ vấn đề và ý kiến của em.","Có ít nhất 2 lí do.","Có ít nhất 1 ví dụ cụ thể.","Dùng từ nối (vì, hơn nữa, tuy nhiên…).","Có đề nghị hoặc việc làm cụ thể.","Câu cuối khẳng định lại ý kiến."],
+ topics:["Em có đồng ý rằng học sinh nên đọc sách mỗi ngày không?","Học sinh tiểu học có nên mang điện thoại đến lớp không?","Em nghĩ gì về việc chơi trò chơi điện tử nhiều giờ mỗi ngày?","Em có tán thành việc phân loại rác ngay tại lớp học không?","Em nghĩ gì về hành vi nói dối để tránh bị phê bình?","Nên hay không nên giúp bạn làm bài hộ?"],
+ vocab:[{g:"Cụm từ nêu ý kiến",w:["em hoàn toàn đồng ý","em không đồng tình","theo em","em cho rằng","em nhận thấy","quan điểm của em là"]},
+  {g:"Từ nối lập luận",w:["trước hết","hơn nữa","bởi vì","chẳng hạn","tuy nhiên","vì vậy","tóm lại","ngược lại"]}],
+ sample:{title:"Mỗi ngày nên đọc sách",parts:[
+  {t:"Đoạn văn",x:"Em hoàn toàn đồng ý với ý kiến cho rằng mỗi ngày học sinh nên dành thời gian đọc sách. Trước hết, đọc sách giúp em mở rộng hiểu biết về thế giới, từ loài vật trong rừng đến những vùng đất xa xôi. Hơn nữa, sách dạy em cách dùng từ và diễn đạt, nhờ vậy bài văn của em ngày càng phong phú. Chẳng hạn, sau khi đọc truyện về loài chim, em đã biết tả tiếng hót “ríu rít, trong như nước suối”. Tuy nhiên, em cũng nhận ra không nên đọc quá khuya vì sẽ hại mắt. Vì vậy, em sẽ đọc sách mỗi tối khoảng hai mươi phút, ở nơi đủ ánh sáng. Đọc sách đúng cách chính là món quà em tự tặng cho mình.",n:"Ý kiến → 2 lí do (trước hết, hơn nữa) → ví dụ (chẳng hạn) → mặt khác (tuy nhiên) → việc làm → khẳng định."}]}},
+
+{id:"gioiThieu",g:"gt",name:"Giới thiệu sách, nhân vật, phim",icon:"📚",color:"#0e7490",kind:"essay",min:120,max:300,
+ short:"Giới thiệu một cuốn sách, nhân vật hoặc bộ phim em yêu thích để bạn bè muốn đọc, muốn xem.",
+ goal:"Giới thiệu ngắn gọn, rõ ràng: tên, tác giả, nội dung chính (không kể hết), điều nổi bật và lời khuyên.",
+ secs:[
+  {t:"Mở bài",p:"Tên sách (nhân vật, phim), tác giả, vì sao em giới thiệu.",q:["Em giới thiệu gì? Của ai?","Em biết đến nó như thế nào? Vì sao em thích?"],s:["Trong tủ sách của em, cuốn em đọc nhiều nhất là…","Em muốn giới thiệu với các bạn…"]},
+  {t:"Nội dung chính",p:"Kể tóm tắt vài ý chính, không kể hết kết thúc.",q:["Truyện (phim) nói về ai, chuyện gì?","Có nhân vật hoặc sự kiện nào nổi bật?"],s:["Truyện kể về…","Nhân vật chính là…"]},
+  {t:"Điều em thích nhất",p:"Nét đặc sắc: nhân vật, bài học, lời văn, hình ảnh.",q:["Em thích nhất điều gì? Vì sao?","Truyện dạy em điều gì?"],s:["Điều em thích nhất là…","Qua truyện, em hiểu rằng…"]},
+  {t:"Kết bài",p:"Lời khuyên bạn nên đọc/xem.",q:["Em muốn nhắn gì với bạn?"],s:["Em tin rằng các bạn sẽ…","Hãy tìm đọc ngay nhé!"]}],
+ skills:[
+  {n:"Giới thiệu đủ thông tin",d:"Tên, tác giả/đạo diễn, thể loại, nhân vật chính.",e:"Dế Mèn phiêu lưu kí của nhà văn Tô Hoài."},
+  {n:"Tóm tắt không tiết lộ hết",d:"Chỉ nói đủ để bạn tò mò.",e:"Điều gì đã khiến chú dế kiêu căng ấy thay đổi?"},
+  {n:"Nêu lí do thích",d:"“Hay” phải có lí do cụ thể.",e:"Em thích vì mỗi chương đều có bài học nhỏ."},
+  {n:"Lời mời gọi",d:"Câu cuối động viên bạn đọc/xem.",e:"Em tin các bạn sẽ không rời mắt khỏi trang sách."}],
+ bad:["Kể hết truyện từ đầu đến cuối.","Chỉ nói “truyện rất hay” mà không nói vì sao.","Quên tên tác giả.","Không có lời khuyên cuối bài."],
+ check:["Có tên tác phẩm và tác giả (hoặc nhà làm phim).","Có tóm tắt nội dung chính.","Không kể hết kết thúc.","Có điều em thích nhất và lí do.","Có bài học hoặc ý nghĩa.","Có lời khuyên bạn đọc/xem."],
+ topics:["Giới thiệu một cuốn sách em yêu thích.","Giới thiệu một nhân vật em ngưỡng mộ trong truyện.","Giới thiệu một bộ phim (phim hoạt hình, phim tài liệu) em đã xem.","Giới thiệu một trò chơi dân gian em thích.","Giới thiệu một hoạt động ngoại khóa của lớp em.","Giới thiệu một danh nhân hoặc anh hùng em biết."],
+ vocab:[{g:"Giới thiệu",w:["tác phẩm","nhà văn","nhân vật chính","nội dung chính","thể loại","bài học","tình tiết","hấp dẫn"]},
+  {g:"Lời khen, lời mời",w:["lôi cuốn","đặc sắc","giàu ý nghĩa","đáng đọc","khó quên","em xin giới thiệu","em tin rằng","hãy tìm đọc"]}],
+ sample:{title:"Dế Mèn phiêu lưu kí",parts:[
+  {t:"Mở bài",x:"Trong tủ sách của em, cuốn em đọc đi đọc lại nhiều nhất là “Dế Mèn phiêu lưu kí” của nhà văn Tô Hoài. Em xin giới thiệu cuốn sách này với các bạn.",n:"Có tên sách, tác giả, và lời mở."},
+  {t:"Nội dung chính",x:"Truyện kể về chú Dế Mèn khỏe mạnh nhưng còn kiêu căng. Vì một lần nghịch dại, chú gây ra chuyện đau lòng cho bạn hàng xóm. Hối hận, chú rời nhà đi phiêu lưu, gặp nhiều bạn bè và vượt qua nhiều nguy hiểm.",n:"Tóm tắt ngắn, nhắc đủ ý chính nhưng không kể hết."},
+  {t:"Điều em thích nhất",x:"Điều em thích nhất là Dế Mèn dám nhận lỗi và thay đổi. Qua mỗi chuyến đi, chú trưởng thành, biết trân trọng tình bạn. Lời văn trong truyện vui tươi, tả thiên nhiên và loài vật rất sống động như thể em đang ở ngay trong vườn cỏ.",n:"Nêu lí do thích cụ thể: nhân vật, bài học, lời văn."},
+  {t:"Kết bài",x:"Em tin rằng khi đọc, các bạn sẽ không muốn rời mắt khỏi trang sách. Hãy tìm đọc ngay nhé!",n:"Kết bằng lời mời gọi."}]}},
+
+{id:"viThu",g:"vb",name:"Viết thư",icon:"✉️",color:"#b45309",kind:"form",min:80,max:250,
+ short:"Viết thư cho bạn bè, người thân hoặc thư điện tử đúng thể thức, giọng thân mật.",
+ goal:"Viết thư gồm: địa điểm – ngày tháng, lời chào, nội dung (hỏi thăm, kể, chia sẻ), lời chúc – hẹn, chữ ký.",
+ secs:[
+  {t:"Đầu thư",p:"Địa điểm, ngày tháng, lời xưng hô.",q:["Em viết thư cho ai? Em xưng hô thế nào?","Ngày viết thư? Em viết ở đâu?"],s:["Hà Nội, ngày … tháng … năm …","Lan thân mến,"]},
+  {t:"Nội dung",p:"Hỏi thăm, kể về em, chia sẻ, hỏi lại, mời.",q:["Em muốn hỏi thăm điều gì?","Em kể gì về trường, lớp, gia đình, hoạt động?","Em muốn hỏi hoặc mời bạn điều gì?"],s:["Dạo này cậu…","Ở lớp tớ…","Cậu có thể…"]},
+  {t:"Cuối thư",p:"Lời chúc, hẹn gặp, lời chào, chữ ký.",q:["Em chúc và hẹn điều gì?","Em ký tên thế nào?"],s:["Chúc cậu…","Hẹn sớm gặp lại cậu!","Bạn của cậu, Mai"]}],
+ skills:[
+  {n:"Xưng hô phù hợp",d:"Gọi người nhận đúng vai: bạn (cậu – tớ), ông bà (cháu), cô giáo (em).",e:"Kính gửi cô Hoa, em là Mai…"},
+  {n:"Giọng thân mật nhưng lịch sự",d:"Thư là lời trò chuyện, không viết như bài tập.",e:"Dạo này cậu có khỏe không?"},
+  {n:"Đủ các phần",d:"Ngày tháng, lời chào, nội dung, lời chúc, chữ ký.",e:"Hà Nội, ngày 20 tháng 10 năm 2026"},
+  {n:"Có chuyện để kể",d:"Chọn 2–3 chuyện cụ thể thay vì “mình vẫn khỏe”.",e:"Tuần trước lớp tớ đi trồng cây ở sân trường…"}],
+ bad:["Quên ngày tháng hoặc lời chào đầu thư.","Viết như liệt kê, không như đang trò chuyện.","Không có lời chúc, hẹn cuối thư.","Không ký tên."],
+ check:["Có địa điểm và ngày tháng ở đầu thư.","Có lời chào phù hợp người nhận.","Có hỏi thăm.","Có kể ít nhất 2 chuyện cụ thể.","Có lời chúc hoặc hẹn gặp.","Có lời kết và ký tên."],
+ tpl:"……, ngày … tháng … năm ……\n\n……(lời chào),\n\n(Nội dung thư)\n\n……(lời chúc, lời hẹn)\n\n……(lời kết và ký tên)",
+ req:[{k:"ngày\\s*(\\d+|…|\\.)",m:"Chưa thấy địa điểm, ngày tháng ở đầu thư (ví dụ: Hà Nội, ngày 20 tháng 10 năm 2026)."},
+  {k:"thân mến|thân gửi|kính gửi|gửi|yêu quý|kính thưa|ơi",m:"Chưa có lời chào đầu thư (ví dụ: “Lan thân mến,”)."},
+  {k:"chúc|mong|hẹn|hy vọng|hi vọng|nhớ",m:"Chưa có lời chúc hoặc lời hẹn ở cuối thư."},
+  {k:"thân ái|kính thư|yêu thương|thương nhớ|bạn của|cháu của|con của|em của|thân",m:"Chưa có lời kết và chữ ký (ví dụ: “Bạn của cậu, Mai”)."}],
+ topics:["Viết thư cho một người bạn ở xa kể về trường lớp của em.","Viết thư thăm ông bà ở quê.","Viết thư cảm ơn một người đã giúp đỡ em.","Viết thư làm quen với một bạn nước ngoài, giới thiệu về Việt Nam.","Viết thư cho cô giáo cũ báo tin em đã lên lớp 5.","Viết thư điện tử mời bạn dự sinh nhật của em."],
+ vocab:[{g:"Lời chào đầu thư",w:["… thân mến,","Thân gửi …,","Kính gửi …,","… ơi,","… yêu quý của cháu,"]},
+  {g:"Hỏi thăm, kể chuyện",w:["dạo này cậu có khỏe không","ở lớp tớ","tớ rất nhớ cậu","tuần qua","tớ muốn kể cho cậu nghe","cậu có thể cho tớ biết"]},
+  {g:"Lời chúc, kết thư",w:["chúc cậu luôn vui khỏe","hẹn sớm gặp lại cậu","mong thư của cậu","thân ái","bạn của cậu","cháu kính thư"]}],
+ sample:{title:"Thư gửi bạn ở xa",parts:[
+  {t:"Đầu thư",x:"Hà Nội, ngày 20 tháng 10 năm 2026\n\nLan thân mến,",n:"Có địa điểm, ngày tháng và lời chào."},
+  {t:"Nội dung",x:"Dạo này cậu có khỏe không? Tớ nhớ cậu và nhớ những buổi chiều chơi nhảy dây ở sân trường lắm. Tuần trước lớp tớ đi trồng cây ở góc vườn trường. Tớ được phân công tưới nước, nhìn những cây non bé xíu mà thấy vui lạ. Còn ở chỗ cậu, lớp mới có gì thú vị không? Cậu kể cho tớ nghe với nhé.",n:"Hỏi thăm → kể chuyện cụ thể → hỏi lại bạn."},
+  {t:"Cuối thư",x:"Chúc cậu luôn vui khỏe và học giỏi. Hẹn sớm gặp lại cậu vào kì nghỉ hè!\n\nBạn của cậu,\nMai",n:"Có lời chúc, lời hẹn và chữ ký."}]}},
+
+{id:"viDon",g:"vb",name:"Viết đơn",icon:"📝",color:"#475569",kind:"form",min:70,max:220,
+ short:"Viết đơn xin phép, đề nghị hoặc xin tham gia đúng mẫu, lời lẽ lịch sự.",
+ goal:"Viết đơn đủ: quốc hiệu, tiêu ngữ, địa điểm – ngày tháng, tên đơn, nơi nhận, người viết, nội dung (lí do, đề nghị), lời cảm ơn, ký tên.",
+ secs:[
+  {t:"Quốc hiệu, tiêu ngữ, ngày tháng",p:"Phần đầu theo mẫu chung.",q:["Em đã ghi đúng quốc hiệu và tiêu ngữ chưa?","Em viết ở đâu, ngày nào?"],s:["CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM\nĐộc lập – Tự do – Hạnh phúc"]},
+  {t:"Tên đơn, nơi nhận",p:"Tên đơn viết hoa; ghi rõ gửi ai.",q:["Đơn xin việc gì?","Em gửi cho ai (cô giáo chủ nhiệm, Ban giám hiệu…)?"],s:["ĐƠN XIN …","Kính gửi: Cô giáo chủ nhiệm lớp …"]},
+  {t:"Người viết đơn",p:"Họ tên, lớp, trường.",q:["Em tên gì, học lớp nào, trường nào?"],s:["Em tên là: … Học sinh lớp … Trường Tiểu học …"]},
+  {t:"Nội dung",p:"Lí do rõ ràng, điều xin hoặc đề nghị cụ thể (thời gian).",q:["Em xin điều gì? Vì sao?","Thời gian từ bao giờ đến bao giờ?"],s:["Em làm đơn này xin…","Lí do: …","Em xin hứa…"]},
+  {t:"Lời cảm ơn, chữ ký",p:"Cảm ơn, hứa, ký tên.",q:["Em hứa hoặc cảm ơn như thế nào?"],s:["Em xin chân thành cảm ơn.","Người viết đơn\n(Ký tên)"]}],
+ skills:[
+  {n:"Đúng thể thức",d:"Quốc hiệu – tiêu ngữ → ngày tháng → tên đơn → kính gửi → nội dung → cảm ơn → ký tên.",e:"ĐƠN XIN PHÉP NGHỈ HỌC"},
+  {n:"Lí do rõ ràng",d:"Ngắn, đúng sự thật, có thời gian cụ thể.",e:"Hôm nay em bị sốt nên xin phép nghỉ học một ngày."},
+  {n:"Lời lẽ lịch sự",d:"Dùng “kính gửi”, “em xin”, “em xin cảm ơn”.",e:"Em kính mong cô cho phép em…"},
+  {n:"Ngắn gọn",d:"Đơn không cần kể dài; nói đúng ý.",e:"Em xin hứa sẽ chép bài đầy đủ."}],
+ bad:["Quên quốc hiệu, tiêu ngữ hoặc tên đơn.","Không ghi rõ gửi ai.","Lí do mơ hồ, không có thời gian.","Quên ký tên."],
+ check:["Có quốc hiệu và tiêu ngữ.","Có địa điểm, ngày tháng.","Có tên đơn viết hoa.","Có “Kính gửi” rõ người nhận.","Có họ tên, lớp, trường của em.","Có lí do, điều xin và lời cảm ơn, ký tên."],
+ tpl:"CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM\nĐộc lập – Tự do – Hạnh phúc\n\n……, ngày … tháng … năm ……\n\nĐƠN ……\n\nKính gửi: ……\n\nEm tên là: ……\nHọc sinh lớp: …… Trường: ……\n\n(Nội dung: lí do và điều em xin)\n\nEm xin chân thành cảm ơn.\n\nNgười viết đơn\n(Ký tên)",
+ req:[{k:"cộng\\s*h[òo]a\\s*xã\\s*hội\\s*chủ\\s*nghĩa\\s*việt\\s*nam",m:"Chưa có quốc hiệu: CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM."},
+  {k:"độc\\s*lập.{0,8}tự\\s*do.{0,8}hạnh\\s*phúc",m:"Chưa có tiêu ngữ: Độc lập – Tự do – Hạnh phúc."},
+  {k:"ngày\\s*(\\d+|…|\\.)",m:"Chưa có địa điểm, ngày tháng."},
+  {k:"đơn\\s+(xin|đề\\s*nghị)",m:"Chưa có tên đơn (ví dụ: ĐƠN XIN PHÉP NGHỈ HỌC)."},
+  {k:"kính\\s*gửi",m:"Chưa có nơi nhận: “Kính gửi: …”."},
+  {k:"em\\s*(tên|là)|họ\\s*(và)?\\s*tên|học\\s*sinh\\s*lớp",m:"Chưa giới thiệu họ tên, lớp, trường của em."},
+  {k:"cảm\\s*ơn|xin\\s*hứa|cam\\s*kết",m:"Chưa có lời cảm ơn hoặc lời hứa ở cuối đơn."},
+  {k:"người\\s*(viết|làm)\\s*đơn|ký\\s*tên|kí\\s*tên",m:"Chưa có phần “Người viết đơn” và chữ ký."}],
+ topics:["Viết đơn xin phép nghỉ học vì ốm.","Viết đơn xin gia nhập câu lạc bộ (bóng đá, vẽ, đọc sách…) của trường.","Viết đơn xin tham gia hội thi của trường.","Viết đơn đề nghị nhà trường sửa vòi nước (hoặc lắp thêm thùng rác) ở sân trường.","Viết đơn xin chuyển chỗ ngồi vì không nhìn rõ bảng.","Viết đơn xin mượn sách thư viện trong kì nghỉ."],
+ vocab:[{g:"Mẫu câu hay dùng",w:["Em làm đơn này xin…","Em xin phép được…","Em kính mong…","Lí do là…","Em xin hứa sẽ…","Em xin chân thành cảm ơn."]},
+  {g:"Ghi nhớ",w:["Kính gửi","Người viết đơn","(Ký tên)","Độc lập – Tự do – Hạnh phúc"]}],
+ sample:{title:"Đơn xin phép nghỉ học (mẫu minh họa)",parts:[
+  {t:"Toàn văn đơn",x:"CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM\nĐộc lập – Tự do – Hạnh phúc\n\nHà Nội, ngày 20 tháng 10 năm 2026\n\nĐƠN XIN PHÉP NGHỈ HỌC\n\nKính gửi: Cô giáo chủ nhiệm lớp 5A\n\nEm tên là: Nguyễn Minh An\nHọc sinh lớp 5A, Trường Tiểu học Ví Dụ.\n\nEm làm đơn này xin phép cô cho em nghỉ học ngày 21 tháng 10 năm 2026. Lí do: em bị sốt và phải đi khám bệnh.\n\nEm xin hứa sẽ nhờ bạn chép bài và làm đầy đủ bài tập khi đi học trở lại.\n\nEm xin chân thành cảm ơn cô.\n\nNgười viết đơn\n(Ký tên)\nMinh An",n:"Đủ 8 phần theo thứ tự. Tên và trường trong mẫu chỉ là ví dụ."}]}},
+
+{id:"baoCao",g:"vb",name:"Viết báo cáo công việc",icon:"📊",color:"#0369a1",kind:"form",min:90,max:300,
+ short:"Báo cáo ngắn gọn, đúng sự thật về công việc của tổ, lớp hoặc cá nhân em.",
+ goal:"Viết báo cáo rõ ràng: tên báo cáo, người nhận, việc đã làm (có số liệu thật), thuận lợi – khó khăn, đề xuất, người báo cáo.",
+ secs:[
+  {t:"Tên báo cáo, nơi nhận",p:"Báo cáo về việc gì, trong thời gian nào, gửi ai.",q:["Em báo cáo việc gì (tuần nào)?","Em gửi cho ai?"],s:["BÁO CÁO KẾT QUẢ …","Kính gửi: …"]},
+  {t:"Công việc đã làm",p:"Liệt kê việc đã làm và kết quả (số liệu thật).",q:["Tổ (lớp) đã làm những việc gì?","Kết quả cụ thể (số lượng, thời gian)?"],s:["1. …","2. …","Kết quả: …"]},
+  {t:"Đánh giá, đề xuất",p:"Thuận lợi, khó khăn và đề nghị.",q:["Điều gì làm tốt? Điều gì còn khó?","Em đề nghị gì?"],s:["Thuận lợi: …","Khó khăn: …","Đề nghị: …"]},
+  {t:"Người báo cáo",p:"Ngày tháng, chức vụ, họ tên.",q:["Ai ký báo cáo?"],s:["Tổ trưởng\n(Ký tên)"]}],
+ skills:[
+  {n:"Ngắn gọn, có số liệu",d:"Dùng con số thật thay cho “rất nhiều”.",e:"Tổ em thu được 12 ki-lô-gam giấy vụn."},
+  {n:"Chia ý rõ ràng",d:"Đánh số 1, 2, 3 để dễ đọc.",e:"1. Trực nhật đúng giờ. 2. Thu giấy vụn."},
+  {n:"Trung thực",d:"Nói cả khó khăn, không khen quá mức.",e:"Khó khăn: hai bạn nghỉ ốm nên làm chậm."},
+  {n:"Có đề nghị",d:"Đề nghị cụ thể giúp công việc tốt hơn.",e:"Đề nghị cô cho thêm 1 thùng đựng giấy."}],
+ bad:["Quên nêu thời gian của báo cáo.","Viết chung chung, không có số liệu.","Chỉ khen, không nêu khó khăn.","Không có người ký báo cáo."],
+ check:["Có tên báo cáo và thời gian.","Có nơi nhận.","Liệt kê việc đã làm (đánh số).","Có kết quả cụ thể.","Có thuận lợi, khó khăn hoặc đề nghị.","Có người báo cáo, ngày tháng."],
+ tpl:"BÁO CÁO ……\n(Thời gian: ……)\n\nKính gửi: ……\n\n1. Công việc đã làm:\n- ……\n- ……\n2. Kết quả:\n……\n3. Thuận lợi, khó khăn:\n……\n4. Đề nghị:\n……\n\n……, ngày … tháng … năm ……\nNgười báo cáo\n(Ký tên)",
+ req:[{k:"báo\\s*cáo",m:"Chưa có tên báo cáo (ví dụ: BÁO CÁO KẾT QUẢ HOẠT ĐỘNG CỦA TỔ 2)."},
+  {k:"kính\\s*gửi|gửi",m:"Chưa ghi báo cáo gửi cho ai."},
+  {k:"đã\\s*(làm|thực\\s*hiện|hoàn\\s*thành)|công\\s*việc|kết\\s*quả",m:"Chưa nêu công việc đã làm và kết quả."},
+  {k:"thuận\\s*lợi|khó\\s*khăn|đề\\s*nghị|kiến\\s*nghị|nhận\\s*xét",m:"Chưa có phần thuận lợi, khó khăn hoặc đề nghị."},
+  {k:"người\\s*báo\\s*cáo|ký\\s*tên|kí\\s*tên|tổ\\s*trưởng|lớp\\s*trưởng",m:"Chưa có người báo cáo và chữ ký."}],
+ topics:["Báo cáo kết quả hoạt động của tổ em trong một tuần.","Báo cáo công việc trực nhật của tổ em.","Báo cáo kết quả phong trào thu gom giấy vụn (kế hoạch nhỏ) của lớp.","Báo cáo buổi lao động vệ sinh sân trường của lớp em.","Báo cáo kết quả học tập của tổ em trong tháng.","Báo cáo hoạt động của thư viện lớp em."],
+ vocab:[{g:"Từ ngữ báo cáo",w:["kết quả","đã hoàn thành","thuận lợi","khó khăn","đề nghị","kiến nghị","đạt","chưa đạt"]},
+  {g:"Mẫu câu",w:["Em xin báo cáo…","Trong tuần qua, tổ em đã…","Kết quả cụ thể như sau:","Em đề nghị…","Em xin chân thành cảm ơn."]}],
+ sample:{title:"Báo cáo hoạt động tổ 2 (mẫu minh họa)",parts:[
+  {t:"Toàn văn báo cáo",x:"BÁO CÁO HOẠT ĐỘNG CỦA TỔ 2 TRONG TUẦN 8\n\nKính gửi: Cô giáo chủ nhiệm lớp 5A\n\nEm là Trần Hà Vy, tổ trưởng tổ 2. Em xin báo cáo công việc của tổ trong tuần 8 như sau:\n\n1. Công việc đã làm:\n- Trực nhật đúng giờ cả 5 buổi.\n- Cả tổ thu gom giấy vụn cho phong trào của lớp.\n2. Kết quả: tổ thu được 12 ki-lô-gam giấy vụn; không có bạn nào đi học muộn.\n3. Thuận lợi, khó khăn: các bạn đều nhiệt tình; hai bạn nghỉ ốm nên việc quét lớp hơi chậm.\n4. Đề nghị: cô cho tổ em thêm một thùng để đựng giấy.\n\nHà Nội, ngày 20 tháng 10 năm 2026\nNgười báo cáo\n(Ký tên)\nHà Vy",n:"Đủ tên báo cáo, nơi nhận, việc đã làm, kết quả, thuận lợi – khó khăn, đề nghị, người ký. Số liệu trong mẫu chỉ là ví dụ."}]}},
+
+{id:"chuongTrinh",g:"vb",name:"Lập chương trình hoạt động",icon:"🗓️",color:"#0f766e",kind:"form",min:90,max:300,
+ short:"Lập chương trình cho một buổi sinh hoạt, hội thi hay chuyến tham quan của lớp.",
+ goal:"Lập chương trình rõ ràng: tên, mục đích, thời gian – địa điểm – thành phần, các hoạt động theo thứ tự, phân công chuẩn bị.",
+ secs:[
+  {t:"Tên chương trình, mục đích",p:"Tên hấp dẫn, nêu mục đích ngắn.",q:["Chương trình tên gì, nhân dịp gì?","Mục đích để làm gì?"],s:["CHƯƠNG TRÌNH …","Mục đích: …"]},
+  {t:"Thời gian, địa điểm, thành phần",p:"Ngày giờ, nơi tổ chức, ai tham dự.",q:["Tổ chức khi nào, ở đâu?","Ai tham dự?"],s:["Thời gian: …","Địa điểm: …","Thành phần: …"]},
+  {t:"Nội dung các hoạt động",p:"Liệt kê theo thứ tự, mỗi hoạt động có thời gian.",q:["Hoạt động đầu tiên? Tiếp theo? Cuối cùng?","Mỗi hoạt động kéo dài bao lâu?"],s:["1. … (… phút)","2. …","3. …"]},
+  {t:"Phân công, chuẩn bị",p:"Ai làm gì, cần chuẩn bị gì.",q:["Ai phụ trách phần nào?","Cần chuẩn bị đồ dùng gì?"],s:["Người dẫn chương trình: …","Chuẩn bị: …"]}],
+ skills:[
+  {n:"Sắp xếp theo thứ tự thời gian",d:"Hoạt động nào trước, nào sau để chương trình trôi chảy.",e:"1. Chào cờ, 2. Văn nghệ, 3. Trò chơi."},
+  {n:"Có thời gian cụ thể",d:"Mỗi phần ghi số phút để không quá dài.",e:"Văn nghệ (15 phút)."},
+  {n:"Phân công rõ ràng",d:"Mỗi việc có tên người phụ trách.",e:"Bạn Nam phụ trách âm thanh."},
+  {n:"Câu ngắn, gạch đầu dòng",d:"Văn bản chương trình cần dễ nhìn.",e:"- Chuẩn bị: bóng bay, loa, ghế."}],
+ bad:["Thiếu thời gian hoặc địa điểm.","Các hoạt động sắp xếp lộn xộn.","Không phân công người phụ trách.","Viết thành đoạn văn dài thay vì gạch đầu dòng."],
+ check:["Có tên chương trình.","Có mục đích.","Có thời gian, địa điểm, thành phần.","Các hoạt động theo thứ tự, có thời lượng.","Có phân công người phụ trách.","Có phần chuẩn bị."],
+ tpl:"CHƯƠNG TRÌNH ……\n\n1. Mục đích: ……\n2. Thời gian: ……\n3. Địa điểm: ……\n4. Thành phần tham dự: ……\n5. Nội dung:\n- (… phút) ……\n- (… phút) ……\n6. Phân công, chuẩn bị:\n- ……",
+ req:[{k:"chương\\s*trình",m:"Chưa có tên chương trình."},
+  {k:"mục\\s*(đích|tiêu)",m:"Chưa có mục đích."},
+  {k:"thời\\s*gian",m:"Chưa ghi thời gian."},
+  {k:"địa\\s*điểm",m:"Chưa ghi địa điểm."},
+  {k:"nội\\s*dung|hoạt\\s*động|tiết\\s*mục|\\d+\\s*phút",m:"Chưa liệt kê các hoạt động (có thời lượng)."},
+  {k:"phân\\s*công|phụ\\s*trách|chuẩn\\s*bị",m:"Chưa có phân công hoặc phần chuẩn bị."}],
+ topics:["Lập chương trình tổ chức Ngày Nhà giáo Việt Nam 20/11 của lớp em.","Lập chương trình Tết Trung thu của lớp.","Lập chương trình tham quan (dã ngoại) cuối học kì.","Lập chương trình ngày hội đọc sách của lớp.","Lập chương trình chia tay mái trường tiểu học.","Lập chương trình giao lưu với lớp bạn."],
+ vocab:[{g:"Từ ngữ chương trình",w:["mục đích","thành phần tham dự","tiết mục","văn nghệ","trò chơi","phát biểu","phụ trách","chuẩn bị"]},
+  {g:"Mẫu câu",w:["Thời gian: từ … giờ đến … giờ","Địa điểm: tại …","Người dẫn chương trình:","Mỗi phần kéo dài … phút","Cả lớp cùng tham gia"]}],
+ sample:{title:"Chương trình 20/11 của lớp (mẫu minh họa)",parts:[
+  {t:"Toàn văn chương trình",x:"CHƯƠNG TRÌNH VĂN NGHỆ CHÀO MỪNG NGÀY NHÀ GIÁO VIỆT NAM 20/11 – LỚP 5A\n\n1. Mục đích: Bày tỏ lòng biết ơn thầy cô và tạo không khí vui vẻ cho cả lớp.\n2. Thời gian: 8 giờ 00, thứ Sáu, ngày 20 tháng 11 năm 2026.\n3. Địa điểm: Phòng học lớp 5A.\n4. Thành phần: Cô giáo chủ nhiệm và toàn thể học sinh lớp 5A.\n5. Nội dung:\n- (5 phút) Chào cờ, tuyên bố lí do – Bạn Lan (lớp trưởng).\n- (15 phút) Văn nghệ: hát, múa, đọc thơ – các tổ.\n- (10 phút) Trò chơi “Ai nhanh hơn” – Bạn Nam.\n- (5 phút) Tặng hoa và đọc lời tri ân – Bạn Mai.\n6. Chuẩn bị: hoa, loa, bóng bay, ghế – các tổ trưởng phụ trách.",n:"Có tên, mục đích, thời gian – địa điểm – thành phần, hoạt động theo thứ tự có thời lượng, phân công và chuẩn bị."}]}}
+];
+
+(function(){
+"use strict";
+const $=(s,r=document)=>r.querySelector(s);
+const esc=s=>String(s==null?"":s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const KEY="emyeuvietvan.v1";
+const uid=()=>Date.now().toString(36)+Math.random().toString(36).slice(2,6);
+const TY=id=>TYPES.find(t=>t.id===id);
+const GR=id=>GROUPS.find(g=>g.id===id);
+const fmtD=t=>t?new Date(t).toLocaleDateString("vi-VN"):"";
+const countW=t=>(String(t||"").trim().match(/\S+/g)||[]).length;
+const DEF=()=>({v:1,settings:{cls:"Lớp 5",school:"",teacher:"",key:"",model:"gemini-2.5-flash",pin:""},students:[],essays:[],me:"",m:{ai:0}});
+let S=(function(){try{const d=JSON.parse(localStorage.getItem(KEY));if(d&&d.v===1){const b=DEF();return Object.assign(b,d,{settings:Object.assign(b.settings,d.settings),m:Object.assign(b.m,d.m)})}}catch(e){}return DEF()})();
+let saveT;function save(now){clearTimeout(saveT);const f=()=>{try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){toast("Máy không lưu được dữ liệu (bộ nhớ đầy hoặc bị chặn).")}};now?f():saveT=setTimeout(f,350)}
+const stu=id=>S.students.find(s=>s.id===id);
+const ess=id=>S.essays.find(e=>e.id===id);
+const me=()=>stu(S.me);
+let toastT;function toast(m){let t=$(".toast");if(t)t.remove();t=document.createElement("div");t.className="toast";t.textContent=m;document.body.appendChild(t);clearTimeout(toastT);toastT=setTimeout(()=>t.remove(),2600)}
+function copy(txt,msg){const done=()=>toast(msg||"Đã sao chép.");if(navigator.clipboard&&window.isSecureContext)navigator.clipboard.writeText(txt).then(done,()=>fb());else fb();
+ function fb(){const a=document.createElement("textarea");a.value=txt;a.style.position="fixed";a.style.opacity="0";document.body.appendChild(a);a.select();try{document.execCommand("copy")}catch(e){}a.remove();done()}}
+/* ---------- modal ---------- */
+function modal(html,onMount){const ov=document.createElement("div");ov.className="ov";ov.innerHTML='<div class="modal">'+html+'</div>';document.body.appendChild(ov);
+ const close=()=>ov.remove();ov.addEventListener("mousedown",e=>{if(e.target===ov&&!ov.dataset.lock)close()});onMount&&onMount(ov.firstChild,close,ov);return close}
+function ask(title,label,val){return new Promise(res=>{modal(`<h3>${esc(title)}</h3><label>${esc(label)}</label><input type="text" id="mi" value="${esc(val||"")}"><div class="row" style="margin-top:14px"><button class="btn primary" id="ok">Đồng ý</button><button class="btn ghost" id="no">Hủy</button></div>`,(m,close)=>{const i=$("#mi",m);i.focus();const go=()=>{close();res(i.value.trim())};$("#ok",m).onclick=go;$("#no",m).onclick=()=>{close();res(null)};i.onkeydown=e=>{if(e.key==="Enter")go()}})})}
+/* ---------- phân tích cục bộ (không cần AI) ---------- */
+function analyze(text,T){
+ const out=[];const add=(lv,msg,q)=>out.push({lv,msg,q});const tx=String(text||"").replace(/\r/g,"");const w=countW(tx);
+ if(!w)return out;
+ if(w<T.min)add("warn",`Bài mới có ${w} từ. Dạng này nên viết khoảng ${T.min}–${T.max} từ.`);
+ else if(w>T.max*1.3)add("tip",`Bài khá dài (${w} từ). Em đọc lại xem có ý nào bị lặp không.`);
+ else add("ok",`Độ dài ổn: ${w} từ.`);
+ const paras=tx.split(/\n+/).map(s=>s.trim()).filter(Boolean);
+ const prose=T.kind!=="form";
+ if(T.kind==="essay"){if(paras.length<3)add("warn",`Bài mới có ${paras.length} đoạn. Bài văn cần ít nhất 3 phần (mở bài, thân bài, kết bài). Em xuống dòng khi sang phần mới nhé.`);else add("ok",`Bài chia thành ${paras.length} đoạn.`)}
+ if(T.kind==="para"&&paras.length>2)add("tip","Đây là đoạn văn: em nên viết liền thành một đoạn, chỉ xuống dòng khi sang ý hoàn toàn mới.");
+ const units=prose?tx.split(/\n+/).flatMap(p=>p.split(/(?<=[.!?…])["”’)]*\s+/)).map(s=>s.trim()).filter(Boolean):paras;
+ if(prose){
+  const low=units.filter(s=>/^\p{Ll}/u.test(s));
+  low.slice(0,3).forEach(s=>add("warn","Câu bắt đầu chưa viết hoa.",s.split(/\s+/).slice(0,8).join(" ")+"…"));
+  if(low.length>3)add("warn",`Còn ${low.length-3} câu nữa chưa viết hoa chữ cái đầu.`);
+  const noEnd=paras.filter(p=>!/[.!?…"”:)]$/.test(p));
+  noEnd.slice(0,2).forEach(p=>add("tip","Đoạn này chưa có dấu chấm cuối.","…"+p.split(/\s+/).slice(-8).join(" ")));
+  const longS=units.filter(s=>countW(s)>35);
+  longS.slice(0,2).forEach(s=>add("tip",`Câu này dài (${countW(s)} từ). Em thử tách thành hai câu cho dễ đọc.`,s.split(/\s+/).slice(0,12).join(" ")+"…"));
+  for(let i=0;i+2<units.length;i++){const a=units.slice(i,i+3).map(s=>(s.match(/^\S+/)||[""])[0].toLowerCase());if(a[0]&&a[0]===a[1]&&a[1]===a[2]){add("tip",`Ba câu liên tiếp đều bắt đầu bằng “${a[0]}”. Em thử đổi cách mở đầu một câu.`);break}}
+ }
+ const sp=tx.match(/\S{0,10}\s[,;:!?]\S{0,6}/g);if(sp)add("warn","Dấu câu phải đứng sát chữ đứng trước (không có dấu cách trước dấu phẩy, chấm…).",sp[0].trim());
+ const nsp=tx.match(/[\p{L}][,;!?][\p{L}]|[\p{Ll}]\.[\p{L}]/gu);if(nsp)add("warn","Sau dấu câu cần có một dấu cách.",nsp[0]);
+ const slang=tx.match(/(^|\s)(ko|k|j|dc|đc|vs|ok|hok|bít|iu|wa)(?=\s|[.,!?]|$)/i);if(slang)add("warn","Em nên viết đầy đủ, không viết tắt hoặc dùng tiếng lóng.",slang[0].trim());
+ const dbl=tx.match(/(^|[\s,.;])(\p{L}{2,})\s+\2(?=[\s,.;!?]|$)/iu);if(dbl)add("tip",`Từ “${dbl[2]}” bị lặp liền nhau. Nếu không phải từ láy, em xóa bớt một từ.`);
+ if(prose){
+  const sim=(tx.match(/(?<![\p{L}])(như thể|tựa như|giống như|hệt như|y như|như|tựa)(?![\p{L}])\s+(?!vậy|thế|sau|mọi|thường|cũ|nhau|một cách|là|trên|đã)/giu)||[]).length;
+  if(sim)add("ok",`Em đã dùng ${sim} hình ảnh so sánh.`);else add("tip","Em chưa có hình ảnh so sánh nào. Thử thêm một câu có “như”, “tựa như”, “hệt như”…");
+  const bank=T.vocab.flatMap(g=>g.w.map(x=>x.toLowerCase()));const lt=tx.toLowerCase();const used=bank.filter(x=>lt.includes(x));
+  if(used.length)add("ok",`Em đã dùng ${used.length} từ trong Kho từ: ${used.slice(0,5).join(", ")}${used.length>5?"…":""}.`);else add("tip","Em chưa dùng từ nào trong Kho từ. Thử chọn 2–3 từ phù hợp nhé.");
+ }
+ if(T.id==="keChuyen"&&!/[“"”]|^\s*[-–—]/m.test(tx))add("warn","Truyện chưa có lời thoại. Thêm lời nói của nhân vật (trong dấu ngoặc kép hoặc sau dấu gạch đầu dòng) để truyện sinh động hơn.");
+ if(T.id==="yKien"){const first=units[0]||"";if(!/đồng ý|đồng tình|tán thành|cho rằng|theo em|không đồng/i.test(first))add("warn","Câu đầu chưa nêu rõ em tán thành hay không tán thành. Em viết thẳng ý kiến của mình ngay câu đầu.");
+  const cn=new Set((tx.toLowerCase().match(/vì vậy|bởi vì|hơn nữa|trước hết|tuy nhiên|chẳng hạn|ví dụ|tóm lại|ngược lại|vì /g)||[]));if(cn.size<2)add("tip","Em dùng thêm từ nối như “trước hết”, “hơn nữa”, “chẳng hạn”, “tuy nhiên” để lí lẽ rõ ràng hơn.");else add("ok","Em đã dùng từ nối để lập luận.")}
+ if(T.req){const miss=T.req.filter(r=>!new RegExp(r.k,"i").test(tx));miss.forEach(r=>add("warn",r.m));if(!miss.length)add("ok","Đủ các phần bắt buộc của thể thức.")}
+ const ord={warn:0,tip:1,ok:2};return out.sort((a,b)=>ord[a.lv]-ord[b.lv]);
+}
+/* ---------- AI (Gemini) ---------- */
+const hasKey=()=>!!(S.settings.key||"").trim();
+function hideName(t){let o=String(t||"");const m=me();if(m&&m.name){const parts=m.name.trim().split(/\s+/);const cand=[m.name.trim()];if(parts.length>=2)cand.push(parts.slice(-2).join(" "));cand.sort((a,b)=>b.length-a.length).forEach(n=>{if(n.length>3)o=o.replace(new RegExp(n.replace(/[.*+?^${}()|[\]\\]/g,"\\$&"),"giu"),"[tên em]")})}
+ return o.replace(/(\+?84|0)\d{9,10}/g,"[SĐT]").replace(/[\w.+-]+@[\w-]+\.[\w.]+/g,"[email]")}
+function extractJSON(t){t=String(t||"").replace(/```json|```/gi,"").trim();const a=t.search(/[\[{]/);if(a<0)throw new Error("Không đọc được câu trả lời.");const c=t[a]==="{"?"}":"]";return JSON.parse(t.slice(a,t.lastIndexOf(c)+1))}
+async function gemini(prompt,json){
+ const key=(S.settings.key||"").trim();const models=[...new Set([S.settings.model||"gemini-2.5-flash","gemini-flash-latest","gemini-2.0-flash"])];let last;
+ for(const m of models){let res;
+  try{res=await fetch("https://generativelanguage.googleapis.com/v1beta/models/"+m+":generateContent",{method:"POST",headers:{"Content-Type":"application/json","x-goog-api-key":key},body:JSON.stringify({contents:[{role:"user",parts:[{text:prompt}]}],generationConfig:Object.assign({temperature:.4},json?{responseMimeType:"application/json"}:{})})})}
+  catch(e){const er=new Error("Không kết nối được tới AI. Kiểm tra mạng, hoặc dùng cách sao chép sang Gemini.");er.offline=true;throw er}
+  if(res.status===404){last=new Error("Không tìm thấy mô hình AI.");continue}
+  if(!res.ok){let msg="";try{msg=(await res.json()).error.message}catch(e){}
+   if(res.status===429)throw new Error("Hết lượt AI miễn phí lúc này. Chờ 1 phút rồi thử lại.");
+   if([400,401,403].includes(res.status))throw new Error("Mã AI chưa dùng được"+(msg?" (Google báo: "+msg+")":"")+". Kiểm tra lại mã trong Góc cô giáo → Cài đặt.");
+   throw new Error("AI báo lỗi "+res.status+". "+msg)}
+  const d=await res.json();if(m!==S.settings.model)S.settings.model=m;S.m.ai++;save();
+  return(((((d.candidates||[])[0]||{}).content||{}).parts)||[]).map(p=>p.text||"").join("").trim()}
+ throw last||new Error("Không gọi được AI.")}
+/* hỏi AI: có mã → gọi thẳng; không có mã / mất mạng → sao chép sang Gemini rồi dán lại */
+function askAI(prompt,json){return new Promise(async res=>{
+ const manual=reason=>modal(`<h3>Dùng Gemini bằng cách sao chép</h3><p class="small muted">${esc(reason)} Làm 3 bước: <b>1.</b> Bấm “Sao chép yêu cầu”. <b>2.</b> Mở Gemini, dán vào rồi gửi. <b>3.</b> Sao chép câu trả lời, dán vào ô dưới đây.</p>
+  <div class="row"><button class="btn primary" id="cp">Sao chép yêu cầu</button><a class="btn" href="https://gemini.google.com/app" target="_blank" rel="noopener">Mở Gemini</a></div>
+  <label>Câu trả lời của Gemini</label><textarea id="ans" rows="6"></textarea><p class="small" id="mm" style="color:var(--red)"></p>
+  <div class="row"><button class="btn gold" id="use">Dùng câu trả lời này</button><button class="btn ghost" id="x">Đóng</button></div>`,(m,close)=>{
+  $("#cp",m).onclick=()=>copy(prompt,"Đã sao chép. Mở Gemini và dán vào.");
+  $("#x",m).onclick=()=>{close();res(null)};
+  $("#use",m).onclick=()=>{const v=$("#ans",m).value;try{const r=json?extractJSON(v):v.trim();if(!r)throw 0;close();S.m.ai++;save();res(r)}catch(e){$("#mm",m).textContent="Chưa đọc được. Em sao chép toàn bộ câu trả lời của Gemini rồi dán lại nhé."}}});
+ if(!hasKey()){manual("Máy này chưa có mã AI.");return}
+ try{const r=await gemini(prompt,json);res(json?extractJSON(r):r)}catch(e){toast(e.message);if(e.offline)manual(e.message);else res(null)}})}
+function busy(btn,on){if(!btn)return;btn.disabled=on;if(on){btn.dataset.t=btn.innerHTML;btn.innerHTML='<span class="spin"></span>AI đang đọc…'}else btn.innerHTML=btn.dataset.t||btn.innerHTML}
+function reviewPrompt(e){const T=TY(e.type);const R=(RUBRIC[T.kind]||RUBRIC.essay).map((r,i)=>`${i+1}. ${r[0]}: ${r[1]}`).join("\n");
+ return `Bạn là cô giáo tiểu học nhân hậu, đang góp ý bài làm của một học sinh lớp 5 (10–11 tuổi).
+Dạng bài: ${T.name}. Đề bài: ${hideName(e.topic)||"(em tự chọn đề)"}.
+Yêu cầu cần đạt: ${T.goal}
+QUY TẮC BẮT BUỘC:
+- KHÔNG viết lại bài, KHÔNG viết thay câu hay đoạn cho em. Chỉ chỉ ra chỗ cần sửa và gợi ý bằng câu hỏi hoặc cách làm.
+- Xưng “cô”, gọi “em”. Giọng ấm áp, câu ngắn, từ dễ hiểu với học sinh lớp 5.
+- Chấm 5 tiêu chí, mỗi tiêu chí từ 0 đến 2 (bước 0.5), chấm nghiêm túc đúng thực tế, không nâng điểm:
+${R}
+- “trich” phải là đoạn nguyên văn ngắn (dưới 20 từ) lấy đúng từ bài của em.
+- Tối đa 2 điều khen và 5 chỗ cần sửa; chọn chỗ quan trọng nhất trước.
+Chỉ trả về JSON đúng dạng sau, không thêm chữ nào khác:
+{"diem":[n1,n2,n3,n4,n5],"khen":["..."],"sua":[{"trich":"...","van_de":"...","goi_y":"..."}],"buoc_tiep":"một việc em nên làm đầu tiên","nhan_xet":"2-3 câu nhận xét chung"}
+BÀI LÀM CỦA EM:
+"""
+${hideName(e.text)}
+"""`}
+function normReview(r){const d=(Array.isArray(r.diem)?r.diem:[]).slice(0,5).map(n=>Math.max(0,Math.min(2,Math.round((+n||0)*2)/2)));while(d.length<5)d.push(0);
+ return{scores:d,total:d.reduce((a,b)=>a+b,0),khen:(r.khen||[]).slice(0,2).map(String),sua:(r.sua||[]).slice(0,5).map(x=>({trich:String(x.trich||""),van_de:String(x.van_de||""),goi_y:String(x.goi_y||"")})),buoc:String(r.buoc_tiep||""),nx:String(r.nhan_xet||""),fix:{}}}
+/* ---------- điều hướng ---------- */
+const app=$("#app");
+const route=()=>(location.hash||"#/").slice(2).split("/");
+const go=p=>{location.hash="#/"+p};
+window.addEventListener("hashchange",()=>render());
+function setNav(v){document.querySelectorAll(".nav button").forEach(b=>b.classList.toggle("on",b.dataset.go===(v==="t"||v==="w"||v===""?"":v)))}
+function render(keep){const r=route();const v=r[0]||"";setNav(v);let h;
+ if(v==="t")h=vType(r[1],r[2]||"how");else if(v==="w")h=vWrite(r[1],+r[2]||1);else if(v==="mine")h=vMine();else if(v==="co")h=vTeacher(r[1],r[2]);else h=vHome();
+ const y=window.scrollY;app.innerHTML=h;after(v,r);if(keep)window.scrollTo(0,y);else window.scrollTo(0,0)}
+function renderWho(){const el=$("#who");el.innerHTML=`<span>Em là</span><select id="whoSel"><option value="">— chọn tên —</option>${S.students.map(s=>`<option value="${s.id}" ${s.id===S.me?"selected":""}>${esc(s.name)}</option>`).join("")}<option value="+">+ Thêm tên mới</option></select>`;
+ $("#whoSel").onchange=async e=>{if(e.target.value==="+"){const n=await ask("Em tên là gì?","Họ và tên của em","");if(n)addStudent(n);else renderWho()}else{S.me=e.target.value;save();render()}}}
+function addStudent(name){const s={id:uid(),name:name.trim()};S.students.push(s);S.me=s.id;save(true);renderWho();render();return s}
+async function needMe(){if(me())return true;const n=await ask("Em tên là gì?","Họ và tên của em (để cô biết bài của em)","");if(!n)return false;addStudent(n);return true}
+/* ---------- trang chủ ---------- */
+function vHome(){const m=me();const mine=S.essays.filter(e=>e.sid===S.me&&e.status!=="sent").sort((a,b)=>b.t1-a.t1)[0];
+ return `<div class="wrap"><section class="hero"><div><span class="tag" style="background:var(--gold);color:#3b2a00">Dành cho học sinh lớp 5</span><h1 style="margin-top:8px">Em Yêu Viết Văn</h1><p style="font-size:1.08rem;max-width:560px">Học cách viết, lập dàn ý, viết bài, tự soát lỗi và sửa bài cho <b>10 dạng bài của lớp 5</b>. Cô trợ lý AI chỉ gợi ý chỗ cần sửa, <b>em là người viết</b>.</p>
+ <div class="row"><button class="btn gold" data-a="rand">🎲 Cho em một đề bài</button>${mine?`<button class="btn primary" data-a="open" data-id="${mine.id}">Viết tiếp: ${esc(TY(mine.type).name)}</button>`:""}</div></div>
+ <div class="art"><p>“Văn hay không ở chỗ dùng từ lạ,<br>mà ở chỗ em nhìn thấy điều gì<br>và dám viết điều ấy ra.”</p></div></section>
+ ${m?"":`<div class="card" style="margin-bottom:14px;background:var(--gold2)"><b>Bước đầu tiên:</b> bấm <b>“Em là — chọn tên —”</b> ở góc trên để cô biết bài của em. Hoặc cứ chọn dạng bài, máy sẽ hỏi tên em.</div>`}
+ ${GROUPS.map(g=>`<div class="gh" style="--c:${g.c}"><i></i><h2>${g.name}</h2></div><div class="grid g3">${TYPES.filter(t=>t.g===g.id).map(t=>`<button class="card tcard" style="--c:${t.color}" data-a="type" data-id="${t.id}"><span class="ic">${t.icon}</span><h3>${esc(t.name)}</h3><span class="small muted">${esc(t.short)}</span></button>`).join("")}</div>`).join("")}</div>`}
+/* ---------- trang một dạng bài ---------- */
+function vType(id,tab){const T=TY(id);if(!T)return vHome();const g=GR(T.g);
+ const tabs=[["how","Cách viết"],["sample","Bài mẫu"],["vocab",T.kind==="form"?"Mẫu câu":"Kho từ"],["topics","Đề bài"]];let body="";
+ if(tab==="how")body=`<div class="card"><h3>Em cần đạt được gì?</h3><p>${esc(T.goal)}</p></div><h2 style="margin-top:18px">Bố cục</h2>${T.secs.map((s,i)=>`<div class="sec"><h3>${i+1}. ${esc(s.t)}</h3><p>${esc(s.p)}</p><ul class="q">${s.q.map(q=>`<li>${esc(q)}</li>`).join("")}</ul></div>`).join("")}
+  <h2>Kĩ năng cần nhớ</h2><div class="grid g2">${T.skills.map(k=>`<div class="card"><h3>${esc(k.n)}</h3><p>${esc(k.d)}</p><div class="ex">${esc(k.e)}</div></div>`).join("")}</div>
+  <div class="grid g2" style="margin-top:14px"><div class="card"><h3>⚠️ Lỗi em hay gặp</h3><ul class="bad">${T.bad.map(b=>`<li>${esc(b)}</li>`).join("")}</ul></div><div class="card"><h3>✅ Tự soát bài</h3><ul class="ok">${T.check.map(b=>`<li>${esc(b)}</li>`).join("")}</ul></div></div>`;
+ if(tab==="sample")body=`<div class="card sample"><h3>${esc(T.sample.title)}</h3><p class="small muted">Đọc để học cách viết, rồi viết theo ý của riêng em. Đừng chép lại nhé!</p>${T.sample.parts.map(p=>`<div class="pt"><h4>${esc(p.t)}</h4><p>${esc(p.x)}</p><div class="nt">💡 ${esc(p.n)}</div></div>`).join("")}</div>`;
+ if(tab==="vocab")body=`<div class="card"><p class="small muted">Bấm vào một từ để sao chép. Khi đang viết bài, bấm sẽ chèn thẳng vào bài.</p>${T.vocab.map(v=>`<h3>${esc(v.g)}</h3><div>${v.w.map(w=>`<span class="chip" data-a="word" data-w="${esc(w)}">${esc(w)}</span>`).join("")}</div>`).join("")}</div>`;
+ if(tab==="topics")body=`<div class="grid">${T.topics.map(t=>`<div class="card row" style="justify-content:space-between"><span style="flex:1;min-width:200px">${esc(t)}</span><button class="btn sm gold" data-a="start" data-id="${T.id}" data-topic="${esc(t)}">Viết đề này</button></div>`).join("")}</div>`;
+ return `<div class="wrap"><div class="crumb"><button data-a="home">Trang chủ</button> › ${esc(g.name)}</div><div class="row" style="justify-content:space-between"><div><span class="tag" style="background:${T.color}">${esc(g.name)}</span><h1 style="margin-top:6px">${T.icon} ${esc(T.name)}</h1><p class="muted">${esc(T.short)}</p></div><button class="btn gold" data-a="start" data-id="${T.id}">✏️ Bắt đầu viết</button></div>
+ <div class="tabs">${tabs.map(t=>`<button class="${t[0]===tab?"on":""}" data-a="tab" data-id="${T.id}" data-t="${t[0]}">${t[1]}</button>`).join("")}</div>${body}</div>`}
+/* ---------- quy trình viết ---------- */
+const STEPS=["Đề bài","Dàn ý","Viết bài","Soát & sửa","Hoàn thiện"];
+function lastRev(e){return e.rev[e.rev.length-1]}
+function vWrite(id,step){const e=ess(id);if(!e)return vHome();const T=TY(e.type);step=Math.max(1,Math.min(5,step));e.step=Math.max(e.step||1,step);
+ const head=`<div class="wrap"><div class="crumb"><button data-a="home">Trang chủ</button> › <button data-a="type" data-id="${T.id}">${esc(T.name)}</button></div><h2>${T.icon} ${esc(T.name)}${e.topic?`: <span class="muted" style="font-weight:400">${esc(e.topic)}</span>`:""}</h2>
+ <div class="steps">${STEPS.map((s,i)=>`<button class="${i+1===step?"on":i+1<(e.step||1)?"done":""}" data-a="step" data-id="${e.id}" data-s="${i+1}"><b>${i+1<(e.step||1)&&i+1!==step?"✓":i+1}</b>${s}</button>`).join("")}</div>`;
+ let b="";
+ if(step===1)b=`<div class="card"><h3>Em viết đề nào?</h3><p class="small muted">Chọn một đề gợi ý hoặc tự gõ đề của cô giao.</p><div>${T.topics.map(t=>`<span class="chip" data-a="pick" data-t="${esc(t)}">${esc(t)}</span>`).join("")}</div><label>Đề bài của em</label><textarea id="topic" rows="2" placeholder="Gõ hoặc chọn đề bài…">${esc(e.topic)}</textarea><div class="row" style="margin-top:12px"><button class="btn gold" data-a="step" data-id="${e.id}" data-s="2">Tiếp: Lập dàn ý →</button></div></div>`;
+ if(step===2)b=`<p class="muted">Trả lời các câu hỏi ngắn, ghi ý chính thôi, chưa cần viết thành câu hoàn chỉnh.</p>${T.secs.map((s,i)=>`<div class="card sec" style="margin-bottom:12px"><h3>${i+1}. ${esc(s.t)}</h3><p class="small">${esc(s.p)}</p><ul class="q">${s.q.map(q=>`<li>${esc(q)}</li>`).join("")}</ul><div style="margin-top:6px">${s.s.map(x=>`<span class="chip" data-a="starter" data-i="${i}" data-w="${esc(x)}">${esc(x)}</span>`).join("")}</div><textarea class="ol-in" data-i="${i}" rows="3" placeholder="Ý chính của phần này…">${esc(e.outline[i]||"")}</textarea><div class="row" style="margin-top:6px"><button class="btn sm" data-a="hint" data-i="${i}">💡 Cô trợ lý gợi ý thêm</button></div><div id="hint${i}"></div></div>`).join("")}
+  <div class="row"><button class="btn" data-a="step" data-id="${e.id}" data-s="1">← Đề bài</button><button class="btn gold" data-a="step" data-id="${e.id}" data-s="3">Tiếp: Viết bài →</button></div>`;
+ if(step===3){const ol=T.secs.map((s,i)=>e.outline[i]?`<div class="ol"><b>${esc(s.t)}</b>\n${esc(e.outline[i])}</div>`:"").join("")||'<p class="small muted">Em chưa ghi dàn ý.</p>';
+  b=`<div class="edwrap"><div><div class="paper"><textarea id="ed" placeholder="Em viết bài ở đây…" spellcheck="false">${esc(e.text)}</textarea><div class="stats"><span id="stW"></span><span id="stS"></span><span id="stP"></span><span class="muted">Nên viết ${T.min}–${T.max} từ</span><div class="bar" style="flex:1;min-width:80px;align-self:center"><i id="stB"></i></div></div></div>
+   <div class="row" style="margin-top:12px"><button class="btn" data-a="step" data-id="${e.id}" data-s="2">← Dàn ý</button><button class="btn" data-a="snap" data-id="${e.id}">💾 Lưu bản nháp</button>${T.tpl?`<button class="btn" data-a="tpl" data-id="${e.id}">📋 Chèn khung trình bày</button>`:""}<button class="btn gold" data-a="step" data-id="${e.id}" data-s="4">Soát bài →</button></div></div>
+   <aside class="side"><div class="card"><details open><summary>Dàn ý của em</summary>${ol}</details></div><div class="card"><details><summary>${T.kind==="form"?"Mẫu câu":"Kho từ"} (bấm để chèn)</summary>${T.vocab.map(v=>`<p class="small" style="margin:8px 0 2px"><b>${esc(v.g)}</b></p>${v.w.map(w=>`<span class="chip" data-a="word" data-w="${esc(w)}">${esc(w)}</span>`).join("")}`).join("")}</details></div>
+   <div class="card"><details><summary>Tự soát khi viết</summary><ul class="ok" style="padding-left:18px">${T.check.map((c,i)=>`<li><label style="font-weight:400;margin:0"><input type="checkbox" data-a="chk" data-i="${i}" ${e.chk&&e.chk[i]?"checked":""}> ${esc(c)}</label></li>`).join("")}</ul></details></div></aside></div>`}
+ if(step===4)b=vReview(e,T);
+ if(step===5)b=vFinish(e,T);
+ return head+b+"</div>"}
+function sparkline(vals){if(vals.length<2)return"";const w=300,h=64,p=8,mx=10;const pts=vals.map((v,i)=>[p+i*(w-2*p)/(vals.length-1),h-p-(v/mx)*(h-2*p)]);
+ return `<svg class="spark" viewBox="0 0 ${w} ${h}" role="img" aria-label="Điểm AI qua các lần soát"><polyline fill="none" stroke="#2f7d5b" stroke-width="3" points="${pts.map(q=>q.join(",")).join(" ")}"/>${pts.map((q,i)=>`<circle cx="${q[0]}" cy="${q[1]}" r="4.5" fill="#e8a317"/><text x="${q[0]}" y="${q[1]-8}" font-size="11" text-anchor="middle" fill="#1d2b53">${vals[i]}</text>`).join("")}</svg>`}
+function revBlock(e,T){const r=lastRev(e);if(!r)return"";const names=(RUBRIC[T.kind]||RUBRIC.essay).map(x=>x[0]);
+ return `<div class="card" style="margin-top:14px"><div class="row" style="justify-content:space-between"><h3>Cô trợ lý AI nhận xét (lần ${e.rev.length})</h3><div><span class="total">${r.total}</span><span class="muted">/10 (tham khảo)</span></div></div>
+ <div class="score">${r.scores.map((s,i)=>`<div>${esc(names[i])}<b>${s}</b>/2</div>`).join("")}</div>
+ ${r.khen.map(k=>`<div class="fb ok">👍 ${esc(k)}</div>`).join("")}
+ ${r.sua.map((x,i)=>`<div class="fb warn ${r.fix[i]?"done":""}"><q>${esc(x.trich)}</q><b>${esc(x.van_de)}</b><br><span>💡 ${esc(x.goi_y)}</span><div style="margin-top:6px"><label style="font-weight:400;margin:0"><input type="checkbox" data-a="fix" data-i="${i}" ${r.fix[i]?"checked":""}> Em đã sửa chỗ này</label></div></div>`).join("")}
+ ${r.buoc?`<div class="fb tip"><b>Việc đầu tiên em nên làm:</b> ${esc(r.buoc)}</div>`:""}${r.nx?`<p style="margin-top:8px"><i>${esc(r.nx)}</i></p>`:""}
+ <p class="small muted">Điểm do AI ước lượng chỉ để em tham khảo. Cô giáo mới là người chấm bài.</p>${sparkline(e.rev.map(x=>x.total))}</div>`}
+function vReview(e,T){const L=analyze(e.text,T);
+ if(!countW(e.text))return `<div class="card">Em chưa viết gì. <button class="btn gold" data-a="step" data-id="${e.id}" data-s="3">Quay lại viết bài</button></div>`;
+ return `<div class="card"><h3>Máy soát nhanh (không cần mạng)</h3>${L.map(x=>`<div class="fb ${x.lv}">${x.lv==="warn"?"⚠️":x.lv==="tip"?"💡":"✅"} ${esc(x.msg)}${x.q?`<q>${esc(x.q)}</q>`:""}</div>`).join("")||"<p>Không thấy vấn đề nào.</p>"}</div>
+ <div class="card" style="margin-top:14px"><h3>Nhờ cô trợ lý AI đọc bài</h3><p class="small muted">AI sẽ khen, chỉ ra chỗ cần sửa và gợi ý cách sửa. <b>AI không viết thay em.</b> Tên em được ẩn trước khi gửi.</p><div class="row"><button class="btn gold" data-a="review" data-id="${e.id}">🤖 Nhờ AI đọc bài</button><button class="btn" data-a="step" data-id="${e.id}" data-s="3">← Quay lại sửa bài</button><button class="btn primary" data-a="step" data-id="${e.id}" data-s="5">Xong, hoàn thiện →</button></div>${hasKey()?"":'<p class="small muted" style="margin-top:8px">Máy chưa có mã AI nên sẽ dùng cách sao chép sang Gemini (miễn phí).</p>'}</div>${revBlock(e,T)}`}
+function vFinish(e,T){const r=lastRev(e);const m=stu(e.sid);
+ return `<div class="card"><h3>🎉 Bài của em: ${countW(e.text)} từ</h3><p class="muted">Đã lưu ${e.ver.length} bản nháp · soát bằng AI ${e.rev.length} lần${e.rev.length>1?` · điểm AI từ ${e.rev[0].total} lên ${r.total}`:""}</p>${sparkline(e.rev.map(x=>x.total))}
+ ${e.tNote?`<div class="fb ok"><b>Cô nhận xét:</b> ${esc(e.tNote)}${e.tScore?` <b>(${e.tScore.reduce((a,b)=>a+b,0)}/10)</b>`:""}</div>`:""}
+ <div class="paper" style="margin:10px 0"><div class="sample"><div class="pt" style="border:0;background:transparent;padding-left:62px"><p>${esc(e.text)}</p></div></div></div>
+ <div class="row"><button class="btn" data-a="step" data-id="${e.id}" data-s="3">✏️ Sửa tiếp</button><button class="btn" data-a="print" data-id="${e.id}">🖨️ In / lưu PDF</button><button class="btn" data-a="copytxt" data-id="${e.id}">📄 Sao chép bài</button><button class="btn" data-a="dl" data-id="${e.id}">⬇️ Tải .txt</button><button class="btn gold" data-a="send" data-id="${e.id}" ${e.status==="sent"?"disabled":""}>${e.status==="sent"?"✓ Đã nộp cho cô":"📤 Nộp cho cô"}</button></div>
+ ${m?"":""}</div>`}
+/* ---------- bài của em ---------- */
+function vMine(){const list=S.essays.filter(e=>e.sid===S.me).sort((a,b)=>b.t1-a.t1);
+ return `<div class="wrap"><h1>Bài của em</h1>${!me()?`<div class="card">Em chọn tên ở góc trên để xem bài của mình nhé.</div>`:!list.length?`<div class="card">Em chưa có bài nào. <button class="btn gold" data-a="home">Chọn dạng bài để viết</button></div>`:`<div class="grid g2">${list.map(e=>{const T=TY(e.type),r=lastRev(e);return `<div class="card"><span class="tag" style="background:${T.color}">${esc(T.name)}</span><h3 style="margin-top:6px">${esc(e.topic||"(chưa có đề)")}</h3><p class="small muted">${countW(e.text)} từ · ${e.status==="sent"?"đã nộp":"đang viết"} · ${fmtD(e.t1)}${r?` · AI: ${r.total}/10`:""}${e.tScore?` · Cô: ${e.tScore.reduce((a,b)=>a+b,0)}/10`:""}</p>${e.tNote?`<div class="fb ok small"><b>Cô:</b> ${esc(e.tNote)}</div>`:""}<div class="row"><button class="btn sm gold" data-a="open" data-id="${e.id}">Mở bài</button><button class="btn sm ghost" data-a="del" data-id="${e.id}">Xóa</button></div></div>`}).join("")}</div>`}</div>`}
+/* ---------- góc cô giáo ---------- */
+const sumT=e=>e.tScore?e.tScore.reduce((a,b)=>a+b,0):null;
+function vTeacher(a,b){
+ if(S.settings.pin&&sessionStorage.getItem("coOK")!=="1")return `<div class="wrap" style="max-width:420px"><div class="card"><h2>Góc cô giáo</h2><label>Mã PIN</label><input type="password" id="pin" inputmode="numeric" autocomplete="off"><div class="row" style="margin-top:12px"><button class="btn primary" data-a="pin">Mở</button></div></div></div>`;
+ if(a==="e")return vTEssay(b);
+ if(a==="s")return vTStudent(b);
+ const tabs=[["","Lớp học"],["cd","Cài đặt"]];const tab=a==="cd"?"cd":"";
+ return `<div class="wrap"><h1>Góc cô giáo</h1><p class="muted">${esc(S.settings.cls)}${S.settings.school?" · "+esc(S.settings.school):""}${S.settings.teacher?" · "+esc(S.settings.teacher):""}</p><div class="tabs">${tabs.map(t=>`<button class="${t[0]===tab?"on":""}" data-a="co" data-t="${t[0]}">${t[1]}</button>`).join("")}</div>${tab==="cd"?vSettings():vClass()}</div>`}
+function stats(){const E=S.essays;const sent=E.filter(e=>e.status==="sent").length;const reviewed=E.filter(e=>e.rev.length>=2);const imp=reviewed.length?(reviewed.reduce((s,e)=>s+(e.rev[e.rev.length-1].total-e.rev[0].total),0)/reviewed.length):null;
+ const revs=E.reduce((s,e)=>s+e.ver.length,0);
+ return [["Số em",S.students.length],["Số bài đã viết",E.length],["Đã nộp cho cô",sent],["Bản nháp đã lưu",revs],["Lượt AI đã dùng",S.m.ai],["Điểm AI tăng TB",imp==null?"—":(imp>=0?"+":"")+imp.toFixed(1)]]}
+function vClass(){const rows=S.students.map(s=>{const L=S.essays.filter(e=>e.sid===s.id).sort((a,b)=>b.t1-a.t1);const e=L[0];const r=e&&lastRev(e);return `<tr class="clk" data-a="stu" data-id="${s.id}"><td><b>${esc(s.name)}</b></td><td>${L.length}</td><td>${e?esc(TY(e.type).name):"—"}</td><td>${e?(e.status==="sent"?"Đã nộp":"Đang viết"):""}</td><td>${r?r.total:""}</td><td>${e&&sumT(e)!=null?sumT(e):""}</td></tr>`}).join("");
+ return `<div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(140px,1fr));margin-bottom:14px">${stats().map(x=>`<div class="card" style="text-align:center;padding:12px"><div class="total">${x[1]}</div><div class="small muted">${x[0]}</div></div>`).join("")}</div>
+ <p class="small muted">Số liệu tính trực tiếp từ bài học sinh viết trên máy này.</p>
+ <div class="card"><div class="row" style="justify-content:space-between"><h3>Danh sách lớp</h3><div class="row"><button class="btn sm" data-a="addlist">+ Dán danh sách</button><label class="btn sm" style="margin:0">⬆ Từ Excel<input type="file" accept=".xlsx,.xls,.csv" id="xl" hidden></label><button class="btn sm gold" data-a="export">⬇ Xuất Excel</button></div></div>
+ <div class="scroll">${S.students.length?`<table class="tbl"><thead><tr><th>Họ tên</th><th>Số bài</th><th>Bài gần nhất</th><th>Trạng thái</th><th>Điểm AI</th><th>Điểm cô</th></tr></thead><tbody>${rows}</tbody></table>`:'<p class="muted">Chưa có học sinh. Học sinh tự thêm tên mình, hoặc cô dán danh sách lớp.</p>'}</div></div>`}
+function vTStudent(id){const s=stu(id);const L=S.essays.filter(e=>e.sid===id).sort((a,b)=>b.t1-a.t1);
+ return `<div class="wrap"><div class="crumb"><button data-a="co" data-t="">Góc cô giáo</button> › ${esc(s?s.name:"")}</div><h2>${esc(s?s.name:"")}</h2>${L.length?`<div class="grid g2">${L.map(e=>{const T=TY(e.type),r=lastRev(e);return `<div class="card"><span class="tag" style="background:${T.color}">${esc(T.name)}</span><h3 style="margin-top:6px">${esc(e.topic)}</h3><p class="small muted">${countW(e.text)} từ · ${e.status==="sent"?"đã nộp":"đang viết"} · ${fmtD(e.t1)}${r?" · AI: "+r.total+"/10":""}${sumT(e)!=null?" · Cô: "+sumT(e)+"/10":""}</p><button class="btn sm gold" data-a="topen" data-id="${e.id}">Xem và chấm</button></div>`}).join("")}</div>`:'<div class="card">Em này chưa có bài.</div>'}</div>`}
+function vTEssay(id){const e=ess(id);if(!e)return vClass();const T=TY(e.type),s=stu(e.sid);const R=RUBRIC[T.kind]||RUBRIC.essay;const r=lastRev(e);const sc=e.tScore||[0,0,0,0,0];
+ return `<div class="wrap"><div class="crumb"><button data-a="co" data-t="">Góc cô giáo</button> › ${esc(s?s.name:"")}</div><h2>${T.icon} ${esc(T.name)}: ${esc(e.topic)}</h2><p class="small muted">${countW(e.text)} từ · ${e.ver.length} bản nháp · AI soát ${e.rev.length} lần · ${e.status==="sent"?"đã nộp":"đang viết"}</p>
+ <div class="edwrap"><div class="paper" style="padding:6px 0"><div class="sample"><div class="pt" style="border:0;background:transparent;padding-left:62px"><p>${esc(e.text)}</p></div></div></div>
+ <div><div class="card"><h3>Chấm bài (0–2 mỗi tiêu chí)</h3>${R.map((c,i)=>`<label>${esc(c[0])} <span class="small muted" style="font-weight:400">${esc(c[1])}</span></label><input type="number" min="0" max="2" step="0.5" class="sc" data-i="${i}" value="${sc[i]}">`).join("")}<label>Nhận xét của cô</label><textarea id="tnote" rows="4">${esc(e.tNote||"")}</textarea><div class="row" style="margin-top:10px"><button class="btn sm" data-a="tai" data-id="${e.id}">🤖 AI gợi ý nhận xét</button><button class="btn gold" data-a="tsave" data-id="${e.id}">Lưu</button><button class="btn sm" data-a="redo" data-id="${e.id}">Cho em sửa lại</button></div></div>
+ ${r?`<div class="card" style="margin-top:12px"><b>AI ước lượng lần cuối: ${r.total}/10</b><p class="small">${esc(r.nx)}</p>${sparkline(e.rev.map(x=>x.total))}</div>`:""}</div></div></div>`}
+function vSettings(){const s=S.settings;
+ return `<div class="grid g2"><div class="card"><h3>Thông tin lớp</h3><label>Lớp</label><input type="text" id="s_cls" value="${esc(s.cls)}"><label>Trường</label><input type="text" id="s_school" value="${esc(s.school)}"><label>Giáo viên</label><input type="text" id="s_teacher" value="${esc(s.teacher)}"><label>Mã PIN mở Góc cô giáo (tùy chọn)</label><input type="password" id="s_pin" value="${esc(s.pin)}" inputmode="numeric" autocomplete="off"><p class="small muted">PIN chỉ để học sinh không mở nhầm, không phải bảo mật cao.</p><button class="btn gold" data-a="ssave">Lưu</button></div>
+ <div class="card"><h3>Bật AI (Gemini)</h3><ol class="small" style="padding-left:18px"><li>Mở <a href="https://aistudio.google.com/apikey" target="_blank" rel="noopener">aistudio.google.com/apikey</a> và đăng nhập Gmail.</li><li>Bấm <b>Create API key</b>.</li><li>Sao chép mã (bắt đầu bằng <code>AIza…</code> hoặc <code>AQ.…</code>).</li><li>Dán vào ô dưới, bấm Lưu và thử.</li></ol><input type="password" id="s_key" value="${esc(s.key)}" placeholder="Dán mã AI vào đây" autocomplete="off"><div class="row" style="margin-top:10px"><button class="btn gold" data-a="ksave">Lưu và thử</button><button class="btn ghost" data-a="kdel">Xóa mã</button></div><p class="small muted" id="kmsg"></p><p class="small muted">Mã chỉ lưu trên máy này. Mỗi cô nên dùng mã riêng.</p></div>
+ <div class="card"><h3>Sao lưu dữ liệu</h3><p class="small muted">Dữ liệu lưu trên từng máy, không tự đồng bộ. Muốn chuyển máy: sao lưu rồi khôi phục.</p><div class="row"><button class="btn" data-a="backup">⬇ Sao lưu</button><label class="btn" style="margin:0">⬆ Khôi phục<input type="file" accept=".json" id="rs" hidden></label><button class="btn ghost" data-a="reset" style="color:var(--red)">Xóa toàn bộ</button></div></div></div>`}
+/* ---------- gắn sự kiện sau khi vẽ ---------- */
+let edT;
+function after(v,r){
+ const ed=$("#ed");if(ed){const e=ess(r[1]);const T=TY(e.type);const upd=()=>{const w=countW(ed.value);$("#stW").textContent=w+" từ";$("#stS").textContent=(ed.value.split(/[.!?…]+\s|\n/).filter(s=>s.trim()).length)+" câu";$("#stP").textContent=(ed.value.split(/\n+/).filter(s=>s.trim()).length)+" đoạn";$("#stB").style.width=Math.min(100,w/T.min*100)+"%"};upd();
+  ed.addEventListener("input",()=>{e.text=ed.value;e.t1=Date.now();upd();save()});ed.focus();ed.setSelectionRange(ed.value.length,ed.value.length)}
+ const tp=$("#topic");if(tp)tp.addEventListener("input",()=>{const e=ess(r[1]);e.topic=tp.value;save()});
+ document.querySelectorAll(".ol-in").forEach(t=>t.addEventListener("input",()=>{const e=ess(r[1]);e.outline[t.dataset.i]=t.value;save()}));
+ const xl=$("#xl");if(xl)xl.onchange=importXL;const rs=$("#rs");if(rs)rs.onchange=restore;
+ const pin=$("#pin");if(pin)pin.onkeydown=e=>{if(e.key==="Enter")act("pin",pin)}}
+function insertAtEd(w){const ed=$("#ed");if(!ed)return false;const e=ess(route()[1]);const a=ed.selectionStart,b=ed.selectionEnd;const pre=ed.value.slice(0,a),post=ed.value.slice(b);const sep=pre&&!/\s$/.test(pre)?" ":"";ed.value=pre+sep+w+post;const p=(pre+sep+w).length;ed.focus();ed.setSelectionRange(p,p);ed.dispatchEvent(new Event("input"));return true}
+function snap(e,msg){if(!countW(e.text))return;const l=e.ver[e.ver.length-1];if(l&&l.text===e.text)return;e.ver.push({t:Date.now(),w:countW(e.text),text:e.text});save(true);if(msg)toast("Đã lưu bản nháp "+e.ver.length)}
+function newEssay(type,topic){return{id:uid(),sid:S.me,type,topic:topic||"",outline:{},text:"",ver:[],rev:[],chk:{},status:"draft",step:1,t0:Date.now(),t1:Date.now(),tScore:null,tNote:""}}
+async function act(a,el){
+ const d=el.dataset||{};const r=route();
+ switch(a){
+ case"home":go("");break;
+ case"type":go("t/"+d.id);break;
+ case"tab":go("t/"+d.id+"/"+d.t);break;
+ case"rand":{const T=TYPES[Math.floor(Math.random()*TYPES.length)];const t=T.topics[Math.floor(Math.random()*T.topics.length)];modal(`<span class="tag" style="background:${T.color}">${esc(T.name)}</span><h3 style="margin-top:8px">${esc(t)}</h3><div class="row" style="margin-top:12px"><button class="btn gold" id="y">Viết đề này</button><button class="btn" id="n">Đề khác</button></div>`,(m,close)=>{$("#y",m).onclick=()=>{close();act("start",{dataset:{id:T.id,topic:t}})};$("#n",m).onclick=()=>{close();act("rand",el)}});break}
+ case"start":{if(!await needMe())break;const e=newEssay(d.id,d.topic);S.essays.push(e);save(true);go("w/"+e.id+"/"+(d.topic?2:1));break}
+ case"open":{const e=ess(d.id);go("w/"+d.id+"/"+Math.min(e.step||1,3));break}
+ case"step":{const e=ess(d.id);if(+d.s>=4)snap(e);if(+d.s>=2&&!(e.topic||"").trim()&&r[2]==="1"){const t=$("#topic");if(t)e.topic=t.value}go("w/"+d.id+"/"+d.s);break}
+ case"pick":{const t=$("#topic");t.value=d.t;t.dispatchEvent(new Event("input"));break}
+ case"starter":{const t=document.querySelector(`.ol-in[data-i="${d.i}"]`);t.value+=(t.value&&!/\n$/.test(t.value)?"\n":"")+d.w;t.dispatchEvent(new Event("input"));t.focus();break}
+ case"word":if(!insertAtEd(d.w))copy(d.w,"Đã sao chép: "+d.w);break;
+ case"chk":{const e=ess(r[1]);e.chk[d.i]=el.checked;save();break}
+ case"snap":snap(ess(d.id),true);break;
+ case"tpl":{const e=ess(d.id);const T=TY(e.type);if(e.text.trim()&&!confirm("Khung trình bày sẽ được thêm vào cuối bài. Em đồng ý không?"))break;e.text=(e.text.trim()?e.text.trim()+"\n\n":"")+T.tpl;save(true);render(true);break}
+ case"hint":{const e=ess(r[1]);const T=TY(e.type);const i=+d.i;const s=T.secs[i];const box=$("#hint"+i);const show=L=>box.innerHTML=`<div class="fb tip">${L.map(x=>`<div>• ${esc(x)}</div>`).join("")}</div>`;
+  const pr=`Bạn là cô giáo tiểu học. Học sinh lớp 5 đang lập dàn ý phần “${s.t}” của bài ${T.name}, đề: ${hideName(e.topic)||"(chưa có đề)"}. Ý em đã ghi: ${hideName(e.outline[i])||"(chưa ghi gì)"}.
+Hãy đặt đúng 3 câu hỏi gợi mở ngắn, dễ hiểu để giúp em nghĩ thêm chi tiết RIÊNG của em. KHÔNG đưa đáp án, không viết sẵn ý hộ em. Trả về JSON: {"hoi":["...","...","..."]}`;
+  if(!hasKey()){show(s.q);break}
+  busy(el,true);const res=await askAI(pr,true);busy(el,false);if(res&&res.hoi)show(res.hoi.slice(0,3).map(String));else show(s.q);break}
+ case"review":{const e=ess(d.id);snap(e);busy(el,true);const res=await askAI(reviewPrompt(e),true);busy(el,false);
+  if(res&&typeof res==="object"){const rv=normReview(res);rv.t=Date.now();rv.ver=e.ver.length;e.rev.push(rv);e.t1=Date.now();save(true);render(true)}break}
+ case"fix":{const e=ess(r[1]);const rv=lastRev(e);rv.fix[d.i]=el.checked;save();render(true);break}
+ case"copytxt":copy(ess(d.id).text,"Đã sao chép bài văn.");break;
+ case"dl":{const e=ess(d.id);const b=new Blob([e.text],{type:"text/plain;charset=utf-8"});const u=URL.createObjectURL(b);const a2=document.createElement("a");a2.href=u;a2.download=(TY(e.type).name+"-"+(stu(e.sid)||{name:"em"}).name).replace(/\s+/g,"_")+".txt";a2.click();setTimeout(()=>URL.revokeObjectURL(u),2000);break}
+ case"print":{const e=ess(d.id);const s=stu(e.sid);$("#printArea").innerHTML=`<h2>${esc(TY(e.type).name)}: ${esc(e.topic)}</h2><div class="meta">${esc(s?s.name:"")} · ${esc(S.settings.cls)}${S.settings.school?" · "+esc(S.settings.school):""} · ${fmtD(Date.now())}</div><div class="txt">${esc(e.text)}</div>`;window.print();break}
+ case"send":{const e=ess(d.id);snap(e);e.status="sent";e.t1=Date.now();save(true);toast("Đã nộp bài cho cô.");render(true);break}
+ case"del":if(confirm("Xóa bài này?")){S.essays=S.essays.filter(e=>e.id!==d.id);save(true);render(true)}break;
+ case"co":go("co"+(d.t?"/"+d.t:""));break;
+ case"stu":go("co/s/"+d.id);break;
+ case"topen":go("co/e/"+d.id);break;
+ case"pin":{const v=$("#pin").value;if(v===S.settings.pin){sessionStorage.setItem("coOK","1");render()}else toast("Chưa đúng mã PIN.");break}
+ case"ssave":{["cls","school","teacher","pin"].forEach(k=>S.settings[k]=$("#s_"+k).value.trim());save(true);toast("Đã lưu.");break}
+ case"ksave":{S.settings.key=$("#s_key").value.trim();save(true);const m=$("#kmsg");if(!hasKey()){m.textContent="Chưa nhập mã.";break}m.innerHTML='<span class="spin"></span>Đang thử…';try{const t=await gemini("Trả lời đúng một chữ: xong",false);m.textContent="AI hoạt động tốt: “"+t.slice(0,20)+"”."}catch(e){m.textContent=e.message}break}
+ case"kdel":S.settings.key="";save(true);render(true);break;
+ case"addlist":modal(`<h3>Dán danh sách lớp</h3><p class="small muted">Mỗi dòng một họ tên.</p><textarea id="lst" rows="10"></textarea><div class="row" style="margin-top:12px"><button class="btn gold" id="ok">Thêm</button><button class="btn ghost" id="no">Hủy</button></div>`,(m,close)=>{$("#no",m).onclick=close;$("#ok",m).onclick=()=>{addNames($("#lst",m).value.split(/\n/));close()}});break;
+ case"export":exportXL();break;
+ case"backup":{const b=new Blob([JSON.stringify(S)],{type:"application/json"});const u=URL.createObjectURL(b);const a2=document.createElement("a");a2.href=u;a2.download="em-yeu-viet-van-sao-luu-"+new Date().toISOString().slice(0,10)+".json";a2.click();setTimeout(()=>URL.revokeObjectURL(u),2000);break}
+ case"reset":if(confirm("Xóa toàn bộ học sinh và bài viết trên máy này?")&&confirm("Chắc chắn xóa? Không khôi phục được (trừ khi đã sao lưu).")){const k=S.settings;S=DEF();S.settings=k;save(true);renderWho();go("")}break;
+ case"tsave":{const e=ess(d.id);e.tScore=[...document.querySelectorAll(".sc")].map(i=>Math.max(0,Math.min(2,Math.round((+i.value||0)*2)/2)));e.tNote=$("#tnote").value.trim();e.tAt=Date.now();save(true);toast("Đã lưu điểm "+sumT(e)+"/10.");break}
+ case"redo":{const e=ess(d.id);e.status="draft";e.step=3;save(true);toast("Bài đã được mở lại để em sửa.");break}
+ case"tai":{const e=ess(d.id);const sc=[...document.querySelectorAll(".sc")].map(i=>i.value).join(", ");busy(el,true);const res=await askAI(`Bạn là cô giáo tiểu học. Viết nhận xét 2–3 câu cho bài ${TY(e.type).name} của một học sinh lớp 5, giọng ấm áp: khen một điểm cụ thể, nêu một việc em cần cố gắng. Điểm 5 tiêu chí (mỗi tiêu chí tối đa 2): ${sc}. Không dùng tên học sinh. Bài làm:\n"""\n${hideName(e.text)}\n"""`,false);busy(el,false);if(res)$("#tnote").value=String(res).trim();break}
+ }}
+document.addEventListener("click",e=>{const b=e.target.closest("[data-a]");if(!b||b.tagName==="INPUT"&&b.type==="checkbox")return;if(b.matches("tr,button,span,a,div,label")){act(b.dataset.a,b)}});
+document.addEventListener("change",e=>{const b=e.target;if(b.matches("input[type=checkbox][data-a]"))act(b.dataset.a,b)});
+document.querySelectorAll(".nav button,.brand").forEach(b=>b.addEventListener("click",()=>go(b.dataset.go||"")));
+/* ---------- Excel ---------- */
+function addNames(arr){let n=0;arr.map(s=>String(s||"").trim()).filter(Boolean).forEach(nm=>{if(!S.students.some(s=>s.name.toLowerCase()===nm.toLowerCase())){S.students.push({id:uid(),name:nm});n++}});save(true);renderWho();render(true);toast("Đã thêm "+n+" học sinh.")}
+function importXL(ev){const f=ev.target.files[0];if(!f)return;if(!window.XLSX){toast("Chưa tải được công cụ Excel (cần mạng). Cô dùng nút Dán danh sách nhé.");return}const rd=new FileReader();rd.onload=()=>{try{const wb=XLSX.read(rd.result,{type:"array"});const rows=XLSX.utils.sheet_to_json(wb.Sheets[wb.SheetNames[0]],{header:1});const names=rows.map(r=>r.find(c=>typeof c==="string"&&/\p{L}/u.test(c)&&!/^(stt|họ|tên|họ và tên)$/i.test(c.trim()))).filter(Boolean);addNames(names)}catch(e){toast("Không đọc được file.")}};rd.readAsArrayBuffer(f)}
+function exportXL(){const A=[["Họ tên","Dạng bài","Đề bài","Số từ","Số bản nháp","Số lần AI soát","Điểm AI lần đầu","Điểm AI lần cuối","Điểm cô","Nhận xét của cô","Trạng thái","Ngày"]];
+ S.essays.slice().sort((a,b)=>((stu(a.sid)||{}).name||"").localeCompare((stu(b.sid)||{}).name||"","vi")).forEach(e=>{const r0=e.rev[0],r1=lastRev(e);A.push([(stu(e.sid)||{}).name||"",TY(e.type).name,e.topic,countW(e.text),e.ver.length,e.rev.length,r0?r0.total:"",r1?r1.total:"",sumT(e)==null?"":sumT(e),e.tNote||"",e.status==="sent"?"Đã nộp":"Đang viết",fmtD(e.t1)])});
+ if(window.XLSX){const wb=XLSX.utils.book_new();XLSX.utils.book_append_sheet(wb,XLSX.utils.aoa_to_sheet(A),"Bài viết");XLSX.utils.book_append_sheet(wb,XLSX.utils.aoa_to_sheet([["Chỉ số","Giá trị"],...stats()]),"Thống kê");XLSX.writeFile(wb,"em-yeu-viet-van.xlsx")}
+ else{const csv="\ufeff"+A.map(r=>r.map(c=>'"'+String(c).replace(/"/g,'""')+'"').join(",")).join("\n");const u=URL.createObjectURL(new Blob([csv],{type:"text/csv;charset=utf-8"}));const a=document.createElement("a");a.href=u;a.download="em-yeu-viet-van.csv";a.click()}}
+function restore(ev){const f=ev.target.files[0];if(!f)return;const rd=new FileReader();rd.onload=()=>{try{const d=JSON.parse(rd.result);if(d.v!==1||!Array.isArray(d.essays))throw 0;if(!confirm("Khôi phục sẽ thay thế dữ liệu hiện có trên máy. Tiếp tục?"))return;S=Object.assign(DEF(),d);save(true);renderWho();go("");toast("Đã khôi phục.")}catch(e){toast("File sao lưu không đúng.")}};rd.readAsText(f)}
+/* ---------- khởi động ---------- */
+(function boot(){
+ const m=location.hash.match(/#ai=([^&]+)/);if(m){S.settings.key=decodeURIComponent(m[1]);save(true);history.replaceState(null,"",location.pathname);toast("Đã lưu mã AI cho máy này.")}
+ renderWho();render();
+ if("serviceWorker" in navigator&&location.protocol.startsWith("http"))navigator.serviceWorker.register("sw.js").catch(()=>{});
+})();
+window.__app={get S(){return S},analyze,TYPES};
+})();
+</script>
+</body>
+</html>
